@@ -45,6 +45,9 @@ Route::any('catergory/edit/{category}', [ProductCategoryController::class, 'edit
 Route::any('catergory/update/{category}', [ProductCategoryController::class, 'update'])->name('categories.update');
 Route::delete('delete/catergory/{category}', [ProductCategoryController::class, 'destroy'])->name('categories.destroy');
 
+Route::get('/', function () {
+    return view('auth.login');
+ 
 });
 
 
