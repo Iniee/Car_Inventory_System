@@ -35,17 +35,14 @@
                                         <td>{{ $product->name }}</td>
                                         <td>{{ $product->price }}</td>
                                         <td>{{ $product->product }}</td>
-                                            <a href="{{ route('products.edit', $product) }}" class="btn btn-link"
-                                                data-toggle="tooltip" data-placement="bottom" title="Edit Product">
+                                          <td class="td-actions text-right">
+                                            <a href="{{ route('products.edit', $product) }}" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Edit Product">
                                                 <i class="tim-icons icon-pencil"></i>
                                             </a>
-                                            <form action="{{ route('products.destroy', $product) }}" method="post"
-                                                class="d-inline">
+                                            <form action="{{ route('products.destroy', $product) }}" method="post" class="d-inline">
                                                 @csrf
                                                 @method('delete')
-                                                <button type="button" class="btn btn-link" data-toggle="tooltip"
-                                                    data-placement="bottom" title="Delete Product"
-                                                    onclick="confirm('Are you sure you want to remove this product? The records that contain it will continue to exist.') ? this.parentElement.submit() : ''">
+                                                <button type="button" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Delete Product" onclick="confirm('Are you sure you want to remove this product? The records that contain it will continue to exist.') ? this.parentElement.submit() : ''">
                                                     <i class="tim-icons icon-simple-remove"></i>
                                                 </button>
                                             </form>

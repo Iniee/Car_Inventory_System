@@ -22,7 +22,6 @@ return new class extends Migration
             $table->unsignedinteger('product')->default(0);
             $table->foreign('product_category_id')->references('id')->on('productcategories');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
