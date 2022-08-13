@@ -46,7 +46,7 @@ Route::resource('product', ProductController::class);
 Route::resource('inventory/category', ProductCategoryController::class);
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 Auth::routes();
 
