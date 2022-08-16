@@ -34,17 +34,18 @@
 
                 </div>
             </div>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                        class="fa fa-laptop me-2"></i>User Management</a>
-                <div class="dropdown-menu bg-transparent border-0">
-                    <a href="{{ route('users.create') }}" class="dropdown-item">Create User</a>
-                    <a href="{{ route('users.index') }}" class="dropdown-item">Manage User</a>
-                    
+          @if (Auth::user()->is_admin==1) 
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
+                    class="fa fa-laptop me-2"></i>User Management</a>
+            <div class="dropdown-menu bg-transparent border-0">
+                <a href="{{ route('users.create') }}" class="dropdown-item">Create User</a>
+                <a href="{{ route('users.index') }}" class="dropdown-item">Manage User</a>
+                
 
-                </div>
             </div>
-
+        </div>
+    @endif
         </div>
     </nav>
 </div>
