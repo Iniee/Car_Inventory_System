@@ -33,7 +33,7 @@
                                             <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
                                         </td>
                                         <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
-                                        {{-- <td class="text-right">
+                                       <td class="text-right">
                                                 <div class="dropdown">
                                                     <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <i class="tim-icons icon-settings-gear-63"></i>
@@ -50,11 +50,11 @@
                                                                 </button>
                                                             </form>
                                                         @else
-                                                            <a class="dropdown-item" href="{{ route('profile.edit', $user->id) }}">{{ __('Edit') }}</a>
+                                                            <a class="dropdown-item" href="#">{{ __('Edit') }}</a>
                                                         @endif
                                                     </div>
                                                 </div>
-                                        </td> --}}
+                                        </td> 
                                     </tr>
                                 @endforeach
                             </tbody>
