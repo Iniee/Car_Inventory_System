@@ -1,4 +1,5 @@
-<!--@extends('layouts.app', ['page' => 'Edit Product', 'pageSlug' => 'products', 'section' => 'inventory'])-->
+@extends('layouts.navbars.user_sidebar')
+{{-- <!--@extends('layouts.app', ['page' => 'Edit Product', 'pageSlug' => 'products', 'section' => 'inventory'])--> --}}
 
 @section('content')
     <div class="container-fluid mt--7">

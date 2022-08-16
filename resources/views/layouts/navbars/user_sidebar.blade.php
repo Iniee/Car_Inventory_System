@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="ms-3">
-                <h6 class="mb-0">Welcome {{ Auth::user()->name}}</h6>
+                <h6 class="mb-0">Welcome {{ Auth::user()->name }}</h6>
                 {{-- <span>Admin</span> --}}
             </div>
         </div>
@@ -27,10 +27,11 @@
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                         class="fa fa-laptop me-2"></i>Products</a>
                 <div class="dropdown-menu bg-transparent border-0">
-                    <a href="{{ route('products.create') }}" class="dropdown-item">Create Product</a>
-                    <a href=" {{ route('categories.create') }}" class="dropdown-item">Create Categories</a>
-                    <a href="{{ route('products.index') }}" class="dropdown-item">Manage Products</a>
-                    <a href="#" class="dropdown-item">List of Product Sold</a>
+                        <a href="{{ route('products.create') }}" class="dropdown-item">Create Product</a>
+                        <a href=" {{ route('categories.create') }}" class="dropdown-item">Create Categories</a>
+                        <a href="{{ route('products.index') }}" class="dropdown-item">Manage Products</a>
+                        <a href="#" class="dropdown-item">List of Product Sold</a>
+                       
                 </div>
             </div>
             <div class="nav-item dropdown">
@@ -93,7 +94,10 @@
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                 <a href="#" class="dropdown-item">Settings</a>
-                <a href="#" class="dropdown-item">Log Out</a>
+                {{-- <form action="{{ route ('logout')}}" method="POST" > --}}
+                <a href="{{ route('login') }}" class="dropdown-item">Log Out</a>
+                {{-- @csrf
+            </form> --}}
             </div>
         </div>
     </div>

@@ -23,17 +23,9 @@ use App\Models\ProductCategory;
 //     return view('welcome');
 // });
 
-
 Route::get('/page', function () {
     return view('users.dashboard');
 });
-
-// Route::get('admin/dashboard', function () {
-//     return view('admin_dashboard.element');
-
-// Route::get('/page', function () {
-//     return view('users.dashboard');
-// });
 
 // Route::get('/side', function() {
 //     return view('layouts.navbars.sidebar');
@@ -72,6 +64,10 @@ Route::get('/', function () {
     return view('auth.login');
  
 });
+
+// Route::post('/logout', function(){
+//     return view('logout');
+// });
 
 
 Route::prefix('product')->middleware('auth')->group(function () {
