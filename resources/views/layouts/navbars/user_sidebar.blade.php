@@ -6,7 +6,7 @@
 <div class="sidebar pe-4 pb-3">
     <nav class="navbar bg-white navbar-danger">
         <a href="#" class="navbar-brand mx-4 mb-3">
-            <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Car git add Inventory</h3>
+            <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>CIS</h3>
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">
             <div class="position-relative">
@@ -27,11 +27,11 @@
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                         class="fa fa-laptop me-2"></i>Products</a>
                 <div class="dropdown-menu bg-transparent border-0">
-                        <a href="{{ route('products.create') }}" class="dropdown-item">Create Product</a>
-                        <a href=" {{ route('categories.create') }}" class="dropdown-item">Create Categories</a>
-                        <a href="{{ route('products.index') }}" class="dropdown-item">Manage Products</a>
-                        <a href="#" class="dropdown-item">List of Product Sold</a>
-                       
+                    <a href="{{ route('products.create') }}" class="dropdown-item">Create Product</a>
+                    <a href=" {{ route('categories.create') }}" class="dropdown-item">Create Categories</a>
+                    <a href="{{ route('products.index') }}" class="dropdown-item">Manage Products</a>
+                    <a href="#" class="dropdown-item">List of Product Sold</a>
+
                 </div>
             </div>
             <div class="nav-item dropdown">

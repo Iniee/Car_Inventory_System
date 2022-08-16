@@ -17,26 +17,26 @@ class IsAdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check()->is_admin == '1') 
+        if (Auth::check()) 
         {
-            return view('users.dashboard');
-        } else if(is_admin == '0') {
-            return view('sales.sales_dashboard');
-        } else{
-            return redirect('auth.login')->with('error', 'Login to access website');
+        //     return view('users.dashboard');
+        // } else if(is_admin == '0') {
+        //     return view('sales.sales_dashboard');
+        // } else{
+        //     return redirect('auth.login')->with('error', 'Login to access website');
+        // }
+            // admin role == 1
+            // user role == 0
+            if (Auth::user()->is_admin == '1') {
+                return $next($request);
+              } 
+        else {
+            return redirect('/page')->with('error', 'No Admin Access!!');
         }
-            //admin role == 1
-            //user role == 0
-        //     if (Auth::user()->is_admin == '1') {
-        //         return $next($request);
-        //       } 
-        // else {
-        //     return redirect('/page')->with('error', 'No Admin Access!!');
-        // }
-        // }
-        // else {
-        //     return redirect('/login')->with('error', 'Login to access website');
-        // }
+        }
+        else {
+            return redirect('/login')->with('error', 'Login to access website');
+        }
         
         
     }

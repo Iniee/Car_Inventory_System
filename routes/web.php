@@ -24,7 +24,11 @@ use App\Models\ProductCategory;
 // });
 
 Route::get('/page', function () {
-    return view('users.dashboard');
+    if (Auth::user()->is_admin == '1'){
+        return view('users.dashboard');
+    }
+    
+    return view('sales.sales_dashboard');
 });
 
 // Route::get('/side', function() {
@@ -44,10 +48,7 @@ Route::post('product/store/', [ProductController::class, 'store'])->name('produc
 Route::any('product/edit/{product}', [ProductController::class, 'edit'])->name('products.edit');
 Route::put('product/update/{product}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('delete/product/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
-
 Route::any('product/show/{product}', [ProductController::class, 'show'])->name('products.show');
-
-
 
 Route::any('catergory/store/', [ProductCategoryController::class, 'store'])->name('categories.store');
 Route::any('catergory/create', [ProductCategoryController::class, 'create'])->name('categories.create');
@@ -65,9 +66,10 @@ Route::get('/', function () {
  
 });
 
-// Route::post('/logout', function(){
-//     return view('logout');
-// });
+
+Route::post('/log', function(){
+    return view('auth.login');
+});
 
 
 Route::prefix('product')->middleware('auth')->group(function () {
