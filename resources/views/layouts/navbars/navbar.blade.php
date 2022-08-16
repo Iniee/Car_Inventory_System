@@ -1,16 +1,19 @@
-{{-- @auth()
+@auth()
     @include('layouts.navbars.navs.auth')
-@endauth --}}
+@endauth 
 
-@guest()
+ @guest()
     @include('layouts.navbars.navs.guest')
 @endguest
 
-@user()
-  @include('')
-@enduser
+{{-- 
+@auth()
+  @include('layouts.navbars.sidebar')
+@endauth --}}
 
+
+{{-- 
 @sales()
   @include('')
-@endsales  
+@endsales   --}}
 

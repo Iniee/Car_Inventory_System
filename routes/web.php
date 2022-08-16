@@ -17,14 +17,18 @@ use App\Http\Controllers\ProductCategoryController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 
 Route::get('/page', function () {
-    return view('landing');
+    return view('users.dashboard');
 });
 
+// Route::get('/side', function() {
+//     return view('layouts.navbars.sidebar');
+// });
 
 Auth::routes();
 
@@ -40,10 +44,14 @@ Route::any('product/edit/{product}', [ProductController::class, 'edit'])->name('
 Route::put('product/update/{product}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('delete/product/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 Route::any('catergory/store/', [ProductCategoryController::class, 'store'])->name('categories.store');
+Route::any('catergory/create', [ProductCategoryController::class, 'create'])->name('categories.create');
 Route::any('catergory/show/{category}', [ProductCategoryController::class, 'show'])->name('categories.show');
 Route::any('catergory/edit/{category}', [ProductCategoryController::class, 'edit'])->name('categories.edit');
 Route::any('catergory/update/{category}', [ProductCategoryController::class, 'update'])->name('categories.update');
 Route::delete('delete/catergory/{category}', [ProductCategoryController::class, 'destroy'])->name('categories.destroy');
+Route::any('catergory/index', [ProductCategoryController::class, 'index'])->name('categories.index');
+
+});
 
 Route::get('/', function () {
     return view('auth.login');
@@ -54,6 +62,7 @@ Route::get('/', function () {
 Route::prefix('product')->middleware('auth')->group(function () {
 Route::any('create', [ProductController::class, 'create'])->name('products.create');
 Route::any('index', [ProductController::class, 'index'])->name('products.index');
-Route::any('catergory/create', [ProductCategoryController::class, 'create'])->name('categories.create');
-Route::any('catergory/index', [ProductCategoryController::class, 'index'])->name('categories.index');
+// Route::any('catergory/create', [ProductCategoryController::class, 'create'])->name('categories.create');
+// Route::any('catergory/index', [ProductCategoryController::class, 'index'])->name('categories.index');
+
 });
