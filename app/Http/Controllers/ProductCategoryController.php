@@ -55,7 +55,7 @@ class ProductCategoryController extends Controller
      */
      public function show(ProductCategory $category)
     {
-        return view('inventory.categories.show', [
+            return view('inventory.categories.show', [
             'category' => $category,
             'products' => Product::where('product_category_id', $category->id)->paginate(25)
         ]);

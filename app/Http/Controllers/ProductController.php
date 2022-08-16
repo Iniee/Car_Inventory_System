@@ -49,17 +49,15 @@ class ProductController extends Controller
             ->withStatus('Product successfully registered.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
-    {
-     
-    }
 
+     public function show(Product $product)
+     {
+            return view('inventory.products.show', [
+            'product' => $product,
+            'products' => Product::where('$product', $product->id)->paginate(25)
+        ]);
+    }
+    
     /**
      * Show the form for editing the specified resource.
      *
