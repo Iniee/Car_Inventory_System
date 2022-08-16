@@ -25,15 +25,15 @@ use App\Models\ProductCategory;
 
 
 Route::get('/page', function () {
-    return view('landing');
-});
-Route::get('admin/dashboard', function () {
-    return view('admin_dashboard.element');
-
-Route::get('/page', function () {
     return view('users.dashboard');
->>>>>>> 5ab7c88ad2b1e20cc64243b2efb2731d08ad9024
 });
+
+// Route::get('admin/dashboard', function () {
+//     return view('admin_dashboard.element');
+
+// Route::get('/page', function () {
+//     return view('users.dashboard');
+// });
 
 // Route::get('/side', function() {
 //     return view('layouts.navbars.sidebar');
@@ -67,7 +67,6 @@ Route::any('catergory/index', [ProductCategoryController::class, 'index'])->name
 
 });
 
-});
 
 Route::get('/', function () {
     return view('auth.login');
