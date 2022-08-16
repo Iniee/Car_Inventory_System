@@ -90,14 +90,11 @@
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                 <img class="rounded-circle me-lg-2" src="{{ asset('images/1.jpg') }}" alt=""
                     style="width: 40px; height: 40px;">
-                <span class="d-none d-lg-inline-flex">USER</span>
+                <span class="d-none d-lg-inline-flex">{{ Auth::user()->name }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                 <a href="#" class="dropdown-item">Settings</a>
-                {{-- <form action="{{ route ('logout')}}" method="POST" > --}}
-                <a href="{{ route('login') }}" class="dropdown-item">Log Out</a>
-                {{-- @csrf
-            </form> --}}
+                <a href="{{ route('logout') }}" class="nav-item dropdown-item" onclick="event.preventDefault();  document.getElementById('logout-form').submit();">{{ __('Log out') }}</a>
             </div>
         </div>
     </div>
