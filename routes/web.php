@@ -24,7 +24,11 @@ use App\Models\ProductCategory;
 // });
 
 Route::get('/page', function () {
-    return view('users.dashboard');
+    if (Auth::user()->is_admin == '1'){
+        return view('users.dashboard');
+    }
+    
+    return view('sales.sales_dashboard');
 });
 
 // Route::get('/side', function() {
@@ -44,10 +48,7 @@ Route::post('product/store/', [ProductController::class, 'store'])->name('produc
 Route::any('product/edit/{product}', [ProductController::class, 'edit'])->name('products.edit');
 Route::put('product/update/{product}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('delete/product/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
-
 Route::any('product/show/{product}', [ProductController::class, 'show'])->name('products.show');
-
-
 
 Route::any('catergory/store/', [ProductCategoryController::class, 'store'])->name('categories.store');
 Route::any('catergory/create', [ProductCategoryController::class, 'create'])->name('categories.create');
@@ -59,10 +60,16 @@ Route::any('catergory/index', [ProductCategoryController::class, 'index'])->name
 
 });
 
+
 Route::get('/', function () {
     return view('auth.login');
  
 });
+
+
+// Route::post('/log', function(){
+//     return view('auth.login');
+// });
 
 
 Route::prefix('product')->middleware('auth')->group(function () {
@@ -71,10 +78,12 @@ Route::any('index', [ProductController::class, 'index'])->name('products.index')
 // Route::any('catergory/create', [ProductCategoryController::class, 'create'])->name('categories.create');
 // Route::any('catergory/index', [ProductCategoryController::class, 'index'])->name('categories.index');
 
-Route::any('sell/index', [SalesController::class, 'index'])->name('sales.index');
-});
+// Route::any('sell/index', [SalesController::class, 'index'])->name('sales.index');
 
 });
+
+
 // Route::get('sell/{id}', [SalesController::class, 'select_from_listed_categories']);
-Route::get('sell', [SalesController::class, 'sold_products']);
+// Route::get('sell', [SalesController::class, 'sold_products']);
+
 

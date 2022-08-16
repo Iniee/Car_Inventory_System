@@ -1,4 +1,5 @@
- @extends('layouts.app', ['page' => __('User Management'), 'pageSlug' => 'users', 'section' => 'users'])
+{{-- @extends('layouts.navbars.user_sidebar') --}}
+@extends('layouts.app', ['page' => __('User Management'), 'pageSlug' => 'users', 'section' => 'users'])
 
 @section('content')
     <div class="row">
@@ -15,7 +16,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                   {{-- @include('alerts.success') --}}
+                    {{-- @include('alerts.success') --}}
 
                     <div class="">
                         <table class="table tablesorter " id="">
@@ -23,7 +24,7 @@
                                 <th scope="col">{{ __('Name') }}</th>
                                 <th scope="col">{{ __('Email') }}</th>
                                 <th scope="col">{{ __('Creation Date') }}</th>
-                                <th scope="col"></th>
+                                <th scope="col">Actions</th>
                             </thead>
                             <tbody>
                                 @foreach ($users as $user)
@@ -33,28 +34,34 @@
                                             <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
                                         </td>
                                         <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
-                                       <td class="text-right">
-                                                <div class="dropdown">
-                                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <i class="tim-icons icon-settings-gear-63"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                       @if (auth()->user()->id != $user->id)
-                                                            <form action="{{ route('users.destroy', $user) }}" method="post">
-                                                                @csrf
-                                                                @method('delete')
+                                        <td class="text-right">
+                                            <div class="dropdown">
+                                                <a class="btn btn-sm btn-icon-only text-light"
+                                                    href="{{ route('users.destroy', $user) }}" role="button"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-                                                                <a class="dropdown-item" href="{{ route('users.edit', $user) }}">{{ __('Edit') }}</a>
-                                                                <button type="button" class="dropdown-item" onclick="confirm('{{ __('Are you sure you want to delete this user?') }}') ? this.parentElement.submit() : ''">
-                                                                            {{ __('Delete') }}
-                                                                </button>
-                                                            </form>
-                                                        @else
-                                                            <a class="dropdown-item" href="#">{{ __('Edit') }}</a>
-                                                        @endif
-                                                    </div>
+                                                    <i class="tim-icons icon-settings-gear-63">Delete</i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                    @if (auth()->user()->id != $user->id)
+                                                        <form action="{{ route('users.destroy', $user) }}" method="post">
+                                                            @csrf
+                                                            @method('delete')
+
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('users.edit', $user) }}">{{ __('Edit') }}</a>
+                                                            <button type="button" class="dropdown-item"
+                                                                onclick="confirm('{{ __('Are you sure you want to delete this user?') }}') ? this.parentElement.submit() : ''">
+                                                                {{ __('Delete') }}
+                                                            </button>
+                                                        </form>
+                                                    @else
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('users.edit', $user) }}">{{ __('Edit') }}</a>
+                                                    @endif
                                                 </div>
-                                        </td> 
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

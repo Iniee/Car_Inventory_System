@@ -19,8 +19,14 @@ class IsAdminMiddleware
     {
         if (Auth::check()) 
         {
-            //admin role == 1
-            //user role == 0
+        //     return view('users.dashboard');
+        // } else if(is_admin == '0') {
+        //     return view('sales.sales_dashboard');
+        // } else{
+        //     return redirect('auth.login')->with('error', 'Login to access website');
+        // }
+            // admin role == 1
+            // user role == 0
             if (Auth::user()->is_admin == '1') {
                 return $next($request);
               } 
