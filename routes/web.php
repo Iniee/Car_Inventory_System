@@ -23,20 +23,21 @@ use App\Models\ProductCategory;
 //     return view('welcome');
 // });
 
+
 Route::get('/page', function () {
     return view('landing');
 });
 Route::get('admin/dashboard', function () {
     return view('admin_dashboard.element');
+
+Route::get('/page', function () {
+    return view('users.dashboard');
+>>>>>>> 5ab7c88ad2b1e20cc64243b2efb2731d08ad9024
 });
 
-Route::get('admin/dashboard/index', function () {
-    return view('admin_dashboard.index');
-})->name('index');
-
-
-
-
+// Route::get('/side', function() {
+//     return view('layouts.navbars.sidebar');
+// });
 
 Auth::routes();
 
@@ -57,10 +58,14 @@ Route::any('product/show/{product}', [ProductController::class, 'show'])->name('
 
 
 Route::any('catergory/store/', [ProductCategoryController::class, 'store'])->name('categories.store');
+Route::any('catergory/create', [ProductCategoryController::class, 'create'])->name('categories.create');
 Route::any('catergory/show/{category}', [ProductCategoryController::class, 'show'])->name('categories.show');
 Route::any('catergory/edit/{category}', [ProductCategoryController::class, 'edit'])->name('categories.edit');
 Route::any('catergory/update/{category}', [ProductCategoryController::class, 'update'])->name('categories.update');
 Route::delete('delete/catergory/{category}', [ProductCategoryController::class, 'destroy'])->name('categories.destroy');
+Route::any('catergory/index', [ProductCategoryController::class, 'index'])->name('categories.index');
+
+});
 
 });
 
@@ -73,8 +78,9 @@ Route::get('/', function () {
 Route::prefix('product')->middleware('auth')->group(function () {
 Route::any('create', [ProductController::class, 'create'])->name('products.create');
 Route::any('index', [ProductController::class, 'index'])->name('products.index');
-Route::any('catergory/create', [ProductCategoryController::class, 'create'])->name('categories.create');
-Route::any('catergory/index', [ProductCategoryController::class, 'index'])->name('categories.index');
+// Route::any('catergory/create', [ProductCategoryController::class, 'create'])->name('categories.create');
+// Route::any('catergory/index', [ProductCategoryController::class, 'index'])->name('categories.index');
+
 Route::any('sell/index', [SalesController::class, 'index'])->name('sales.index');
 
 });
