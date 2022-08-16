@@ -1,6 +1,6 @@
 @auth()
     @include('layouts.navbars.navs.auth')
-@endauth 
+@endauth
 
  @guest()
     @include('layouts.navbars.navs.guest')
@@ -10,6 +10,11 @@
 @auth()
   @include('layouts.navbars.sidebar')
 @endauth --}}
+
+
+{{-- @user()
+  @include('')
+@enduser
 
 
 {{-- 

@@ -23,7 +23,6 @@ use App\Models\ProductCategory;
 //     return view('welcome');
 // });
 
-
 Route::get('/page', function () {
     return view('users.dashboard');
 });
@@ -74,3 +73,8 @@ Route::any('index', [ProductController::class, 'index'])->name('products.index')
 
 Route::any('sell/index', [SalesController::class, 'index'])->name('sales.index');
 });
+
+});
+// Route::get('sell/{id}', [SalesController::class, 'select_from_listed_categories']);
+Route::get('sell', [SalesController::class, 'sold_products']);
+
