@@ -19,14 +19,13 @@ use App\Models\ProductCategory;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/page', function () {
     return view('landing');
 });
-
 Route::get('admin/dashboard', function () {
     return view('admin_dashboard.element');
 });
@@ -63,6 +62,8 @@ Route::any('catergory/edit/{category}', [ProductCategoryController::class, 'edit
 Route::any('catergory/update/{category}', [ProductCategoryController::class, 'update'])->name('categories.update');
 Route::delete('delete/catergory/{category}', [ProductCategoryController::class, 'destroy'])->name('categories.destroy');
 
+});
+
 Route::get('/', function () {
     return view('auth.login');
  
@@ -75,4 +76,5 @@ Route::any('index', [ProductController::class, 'index'])->name('products.index')
 Route::any('catergory/create', [ProductCategoryController::class, 'create'])->name('categories.create');
 Route::any('catergory/index', [ProductCategoryController::class, 'index'])->name('categories.index');
 Route::any('sell/index', [SalesController::class, 'index'])->name('sales.index');
+
 });
