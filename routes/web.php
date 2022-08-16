@@ -78,6 +78,12 @@ Route::any('index', [ProductController::class, 'index'])->name('products.index')
 // Route::any('catergory/create', [ProductCategoryController::class, 'create'])->name('categories.create');
 // Route::any('catergory/index', [ProductCategoryController::class, 'index'])->name('categories.index');
 
-Route::any('sell/index', [SalesController::class, 'index'])->name('sales.index');
+// Route::any('sell/index', [SalesController::class, 'index'])->name('sales.index');
 
 });
+
+
+// Route::get('sell/{id}', [SalesController::class, 'select_from_listed_categories']);
+// Route::get('sell', [SalesController::class, 'sold_products']);
+
+

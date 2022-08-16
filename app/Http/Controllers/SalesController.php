@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Models\ProductCategory;
+use App\Models\Product;
+use App\Models\Sold;
 
 class SalesController extends Controller
 {
@@ -17,5 +20,14 @@ class SalesController extends Controller
         $products = Product::paginate(25);
 
         return view('sales.index', compact('products'));
+    }
+}
+
+
+    public function sold_products(){
+
+        $sold = Sold::first();
+
+        dd($sold);
     }
 }
