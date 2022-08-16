@@ -67,9 +67,9 @@ Route::get('/', function () {
 });
 
 
-Route::post('/log', function(){
-    return view('auth.login');
-});
+// Route::post('/log', function(){
+//     return view('auth.login');
+// });
 
 
 Route::prefix('product')->middleware('auth')->group(function () {
