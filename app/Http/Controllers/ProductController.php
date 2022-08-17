@@ -50,12 +50,11 @@ class ProductController extends Controller
     }
 
 
-     public function show(Product $product)
+     public function show($product)
      {
-            return view('inventory.products.show', [
-            'product' => $product,
-            'products' => Product::where('$product', $product->id)->paginate(25)
-        ]);
+         return view('inventory.products.show', [
+         'products' => Product::where('name', '=', $product)->first()
+    ]);
     }
     
     /**

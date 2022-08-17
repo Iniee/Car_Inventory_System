@@ -1,41 +1,69 @@
-<h3>Hello</h3>
-
-
-{{-- @extends('layouts.app', ['page' => 'Category Information', 'pageSlug' => 'categories', 'section' => 'inventory'])-->
-
+@extends('layouts.navbars.user_sidebar')
 @section('content')
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Product Information</h4>
-                </div>
-                <div class="card-body">
-                    <table class="table">
-                        <thead>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Catergory</th>                            
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>{{ $products->id }}</td>
-                                <td>{{ $products->name }}</td>
-                                <td>{{ $products->category->name }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+    <div class="py-6">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Product Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Catergory</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ $products->id }}</td>
+                                    <td>{{ $products->name }}</td>
+                                    <td>{{ $products->category->name }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">products: {{ $products->count() }}</h4>
-                </div>
-                <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">products: {{ $products->count() }}</h4>
+                    </div>
+
+                    <form method="post" action="{{ route('products.update', $products) }}" autocomplete="off">
+                        @csrf
+                        @method('PUT')
+                        <h6 class="heading-small text-muted mb-4">Sell Product {{ $products->name }}</h6>
+                        <div class="pl-lg-4">
+                            <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                <label class="form-control-label" for="input-name">{{ __('Name') }}</label>
+                                <input type="text" {{ $products->name ? 'readonly' : '' }} name="name" id="input-name"
+                                    class="form-control" placeholder="{{ __('Name') }}"
+                                    value="{{ old('name', $products->name) }}" autofocus>
+                                {{-- @include('alerts.feedback',['field'=>'name']) --}}
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="form-group{{ $errors->has('product') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-product">Quantity to Sale</label>
+                                        <input type="text" name="product" id="input-product"
+                                            class="form-control form-control-alternative" placeholder="product"
+                                            value="{{ old('product', $products->product) }}" required>
+                                        {{-- @include('alerts.feedback',['field'=>'product']) --}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success mt-4">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                    {{-- <div class="card-body">
                     <table class="table">
                         <thead>
                             <th>ID</th>
@@ -46,29 +74,18 @@
                             <th></th>
                         </thead>
                         <tbody>
-                            @foreach ($products as $product)
-                                <tr>
-                                    <td><a href="{{ route('products.edit', $product) }}">{{ $product->id }}</a></td>
-                                    <td><a href="{{ route('products.edit', $product) }}">{{ $product->name }}</a></td>
-                                    <td>{{ $product->product }}</td>
-                                    <td>{{ $product->price }}</td>
-                                    <td class="td-actions text-right">
-                                        <a href="{{ route('products.edit', $product) }}" class="btn btn-link"
-                                            data-toggle="tooltip" data-placement="bottom" title="More Details">
-                                            <i class="tim-icons icon-zoom-split"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
+                            <tr>
+                                <td>{{ $products->id }}</a></td>
+                                <td>{{ $products->name }}</a></td>
+                                <td>{{ $products->product }}</td>
+                                <td>{{ $products->price }}</td>
+
+                            </tr>
                         </tbody>
                     </table>
-                </div>
-                <div class="card-footer py-4">
-                    <nav class="d-flex justify-content-end">
-                        {{ $products->links() }}
-                    </nav>
+                </div> --}}
                 </div>
             </div>
         </div>
     </div>
-@endsection --}}
+@endsection
