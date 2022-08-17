@@ -61,15 +61,9 @@ class SalesController extends Controller
     }
 
 
+//     public function sold_items(){
+//         $solds = Sold::all();
 
-
-
-
-    // public function sold_items(){
-    //     $solds = Sold::all();
-
-    //     // dd($solds);
-    //     $viewit = 'users.dashboard';
-    //     return view($viewit, compact('solds'));
-    //}
+//         return view('users.dashboard', compact('solds'));
+//     }
 }
