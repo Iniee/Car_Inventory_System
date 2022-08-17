@@ -58,7 +58,7 @@
                     <li><i class="fa fa-user"></i> {{ Auth::user()->name }}:</li>
                     <form id="logout-form" action="{{ url('logout') }}" method="POST">
                         @csrf
-                        <button type="submit">Logout</button>
+                        <button type="submit" class="btn">Logout</button>
                     </form>
                 @endif
             </div>

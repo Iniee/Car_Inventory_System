@@ -59,6 +59,7 @@ Route::any('catergory/edit/{category}', [ProductCategoryController::class, 'edit
 Route::any('catergory/update/{category}', [ProductCategoryController::class, 'update'])->name('categories.update');
 Route::delete('delete/catergory/{category}', [ProductCategoryController::class, 'destroy'])->name('categories.destroy');
 Route::any('catergory/index', [ProductCategoryController::class, 'index'])->name('categories.index');
+// Route::any('users/dashboard', [])->name('users.dashboard');
 
 });
 
