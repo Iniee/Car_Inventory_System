@@ -33,7 +33,7 @@
                         <h4 class="card-title">products: {{ $products->count() }}</h4>
                     </div>
 
-                    <form method="post" action="{{ route('products.update', $products) }}" autocomplete="off">
+                    <form method="post" action="{{ route('sales.update', $products) }}" autocomplete="off">
                         @csrf
                         @method('PUT')
                         <h6 class="heading-small text-muted mb-4">Sell Product {{ $products->name }}</h6>
@@ -44,6 +44,7 @@
                                     class="form-control" placeholder="{{ __('Name') }}"
                                     value="{{ old('name', $products->name) }}" autofocus>
                                 {{-- @include('alerts.feedback',['field'=>'name']) --}}
+                                
                             </div>
 
                             <div class="row">
@@ -59,7 +60,7 @@
                             </div>
 
                             <div class="text-center">
-                                <button type="submit" class="btn btn-success mt-4">Save</button>
+                                <button type="submit" class="btn btn-success mt-4">Submit</button>
                             </div>
                         </div>
                     </form>
