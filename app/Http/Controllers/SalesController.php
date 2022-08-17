@@ -21,7 +21,7 @@ class SalesController extends Controller
 
         return view('sales.index', compact('products'));
     }
-}
+
 
 
     public function sold_products(){
@@ -30,4 +30,6 @@ class SalesController extends Controller
 
         dd($sold);
     }
-}
+
+};
+
