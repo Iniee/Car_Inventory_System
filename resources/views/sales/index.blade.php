@@ -1,5 +1,4 @@
-@extends('layouts.app', ['page' => 'List of Products', 'pageSlug' => 'products', 'section' => 'inventory'])
-
+@extends('layouts.navbars.user_sidebar')
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -15,7 +14,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                   @include('alerts.success')
+                    @include('alerts.success')
 
                     <div class="">
                         <table class="table tablesorter " id="">
@@ -29,9 +28,9 @@
                             <tbody>
                                 @foreach ($products as $product)
                                     <tr>
-                                         <td>{{ $product->category->name }}</td>
-                                        <td><a
-                                                href="{{ route('products.show', $product->name) }}">{{ $product->name }} </a></td>
+                                        <td>{{ $product->category->name }}</td>
+                                        <td><a href="{{ url('sales/show', $product->name) }}">{{ $product->name }}</a>
+                                        </td>
                                         <td>{{ $product->price }}</td>
                                         <td>{{ $product->product }}</td>
                                     </tr>
