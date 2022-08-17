@@ -44,8 +44,10 @@
                                     class="form-control" placeholder="{{ __('Name') }}"
                                     value="{{ old('name', $products->name) }}" autofocus>
                                 {{-- @include('alerts.feedback',['field'=>'name']) --}}
-                                
                             </div>
+                            <input type="hidden" name="" value="{{$products->description}}">
+                            <input type="hidden" name="" value="{{$products->description}}">
+                            <input type="hidden" name="" value="{{$products->price}}">
 
                             <div class="row">
                                 <div class="col-4">
