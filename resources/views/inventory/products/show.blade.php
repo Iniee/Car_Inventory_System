@@ -37,7 +37,7 @@
                         <h4 class="card-title">products: {{ $products->count() }}</h4>
                     </div> --}}
 
-                    <form method="post" action="{{ route('products.update', $products) }}" autocomplete="off">
+                    <form method="post" action="{{ route('sales.update', $products) }}" autocomplete="off">
                         @csrf
                         @method('PUT')  
                         {{-- <h6 class="heading-small text-muted mb-4">Sell Product {{ $products->name }}</h6> --}}

@@ -79,12 +79,13 @@ Route::prefix('product')->middleware('auth')->group(function () {
 Route::any('create', [ProductController::class, 'create'])->name('products.create');
 Route::any('index', [ProductController::class, 'index'])->name('products.index');
 Route::any('sell/index', [SalesController::class, 'index'])->name('sales.index');
-Route::get('sales/show/{product}', [ProductController::class, 'show']);
+Route::get('sales/show/{product}', [SalesController::class, 'show']);
+Route::any('sales/update/{id}', [SalesController::class, 'update'])->name('sales.update');
+
+
 
 
 });
 
 
 
-// Route::get('sell/{id}', [SalesController::class, 'select_from_listed_categories']);
-// Route::get('sell', [SalesController::class, 'sold_products']);
