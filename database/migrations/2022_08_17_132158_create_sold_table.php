@@ -15,10 +15,13 @@ return new class extends Migration
     {
         Schema::create('sold', function (Blueprint $table) {
             $table->id();
-            $table->foreign('category_id')->references('id')->on('productcategories');
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('employee_id')->references('id')->on('users');
             $table->unsignedBigInteger('sold_price');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('productcategories');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->unsignedBigInteger('employee_id');
+            $table->foreign('employee_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
