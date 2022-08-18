@@ -102,8 +102,8 @@
                             <td>{{$item->created_at->format('Y-m-d')}}</td>
                             <td>{{$item->name}}</td>
                             <td>{{Auth::user()->name}}</td>
-                            <td>{{$item->price}}</td>
-                            <td>{{$item->product}}</td>
+                            <td>{{$item->base_price}}</td>
+                            <td>{{$item->quantity_sold}}</td>
                             <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
                         </tr>
                     @endforeach

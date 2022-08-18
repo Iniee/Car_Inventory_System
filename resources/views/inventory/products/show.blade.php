@@ -45,9 +45,9 @@
                                     value="{{ old('name', $products->name) }}" autofocus>
                                 {{-- @include('alerts.feedback',['field'=>'name']) --}}
                             </div>
-                            <input type="text" name="description" value="{{$products->description}}">
                             <input type="text" name="product_category_id" value="{{$products->product_category_id}}">
-                            <input type="text" name="price" value="{{$products->price}}">
+                            <input type="text" name="base_price" value="{{$products->price}}">
+                            <input type="text" name="sold_by" value="{{Auth::user()->name}}">
 
                             <div class="row">
                                 <div class="col-4">
