@@ -23,9 +23,7 @@
         </div>
          
         <div class="navbar-nav w-100">
-            @if (Auth::user()->is_admin==1)
-            <a href=" # " class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-            @endif
+            <a href="/page" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                         class="fa fa-laptop me-2"></i>Products</a>

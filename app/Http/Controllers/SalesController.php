@@ -42,10 +42,11 @@ class SalesController extends Controller
         ]);
         
         $sold = array(
-            "name" => $request->product_id.name,
-            "product" => $request->product,
-            "description" => $request->description,
-            "price" => $request->price,
+            "name" => $request->name,
+            "quantity_sold" => $request->product,
+            "base_price" => $request->base_price,
+            "total_price" => ($request->base_price * $request->product),
+            "sold_by" => $request->sold_by,
             "product_category_id" => $request->product_category_id
         );
 
@@ -54,7 +55,8 @@ class SalesController extends Controller
             $products->save();
             
             $msg = 'Product sold';
-            $sold = DB::table('sold')->insert($sold);
+            // DB::table('solds')->create($sold);
+            Sold::create($sold);
             return back()->with('msg', $msg);
         }
         else if($request->input('product') == 0){

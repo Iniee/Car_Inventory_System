@@ -9,18 +9,12 @@ class Sold extends Model
 {
     use HasFactory;
 
-
-    protected $table = 'sold';
-
-
     protected $fillable = [
-        'sold_price' 
+        'name',
+        'product_category_id',
+        'base_price',
+        'total_price',
+        'quantity_sold',
+        'sold_by',
     ];
-
-    public function update()
-    {
-        return $this->belongsTo( Sales::class, 'category_id');
-        return $this->belongsTo( Sales::class, 'product_id');
-        return $this->belongsTo( Sales::class, 'employee_id');
-    }
 }
