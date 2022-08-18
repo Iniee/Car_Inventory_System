@@ -1,6 +1,9 @@
-<!--@extends('layouts.app', ['page' => 'Category Information', 'pageSlug' => 'categories', 'section' => 'inventory'])-->
+@extends('layouts.navbars.user_sidebar')
+
+{{-- @extends('layouts.app', ['page' => 'Category Information', 'pageSlug' => 'categories', 'section' => 'inventory']) --}}
 
 @section('content')
+<div class="container-fluid py-6">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -35,7 +38,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">products: {{ $products->count() }}</h4>
+                    <h4 class="card-title">Products: {{ $products->count() }}</h4>
                 </div>
                 <div class="card-body">
                     <table class="table">
@@ -73,4 +76,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection

@@ -1,5 +1,6 @@
-{{-- @extends('layouts.navbars.user_sidebar') --}}
-@extends('layouts.app', ['page' => __('User Management'), 'pageSlug' => 'users', 'section' => 'users'])
+@extends('layouts.navbars.user_sidebar')
+
+{{-- @extends('layouts.app', ['page' => __('User Management'), 'pageSlug' => 'users', 'section' => 'users']) --}}
 
 @section('content')
     <div class="row">
@@ -8,7 +9,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ __('Users') }}</h4>
+                            <h4 class="card-title user_title">{{ __('Users') }}</h4>
                         </div>
                         <div class="col-4 text-right">
                             <a href="{{ route('users.create') }}" class="btn btn-sm btn-primary">{{ __('Add user') }}</a>
@@ -35,32 +36,32 @@
                                         </td>
                                         <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
                                         <td class="text-right">
-                                            <div class="dropdown">
-                                                <a class="btn btn-sm btn-icon-only text-light"
-                                                    href="{{ route('users.destroy', $user) }}" role="button"
-                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {{-- <a class="btn btn-sm btn-icon-only text-black"
+                                                href="{{ route('users.destroy', $user) }}" role="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-                                                    <i class="tim-icons icon-settings-gear-63">Delete</i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                    @if (auth()->user()->id != $user->id)
-                                                        <form action="{{ route('users.destroy', $user) }}" method="post">
-                                                            @csrf
-                                                            @method('delete')
+                                                <i class="tim-icons icon-settings-gear-63">Delete</i>
+                                            </a> --}}
+                                            <div class="one">
+                                                @if (auth()->user()->is_admin == '1' && '2')
+                                                    <form action="{{ route('users.destroy', $user) }}" method="post">
+                                                        <div class="one-grid">
+                                                        <a class="btn btn-sm btn-primary btn-icon-only"
+                                                            href="{{ route('users.edit', $user) }}">{{ __('Edit') }}
+                                                        </a>
 
-                                                            <a class="dropdown-item"
-                                                                href="{{ route('users.edit', $user) }}">{{ __('Edit') }}</a>
-                                                            <button type="button" class="dropdown-item"
-                                                                onclick="confirm('{{ __('Are you sure you want to delete this user?') }}') ? this.parentElement.submit() : ''">
-                                                                {{ __('Delete') }}
-                                                            </button>
-                                                        </form>
-                                                    @else
-                                                        <a class="dropdown-item"
-                                                            href="{{ route('users.edit', $user) }}">{{ __('Edit') }}</a>
-                                                    @endif
-                                                </div>
+                                                        <button type="button" class="btn btn-primary btn-sm btn-icon-only"
+                                                            onclick="confirm('{{ __('Are you sure you want to delete this user?') }}') ? this.parentElement.submit() : ''">
+                                                            {{ __('Delete') }}
+                                                        </button>
+                                                        </div>
+                                                    </form>
                                             </div>
+                                                @else
+                                                    <a class="btn btn-sm btn-icon-only text-black"
+                                                        href="{{ route('users.edit', $user) }}">{{ __('Edit') }}</a>
+                                                @endif
+                                                 
                                         </td>
                                     </tr>
                                 @endforeach

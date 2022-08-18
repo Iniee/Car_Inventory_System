@@ -29,7 +29,7 @@
                                 @foreach ($products as $product)
                                     <tr>
                                         <td>{{ $product->category->name }}</td>
-                                        <td><a href="{{ url('sales/show', $product->name) }}">{{ $product->name }}</a>
+                                        <td><a href="{{ url('product/sales/show', $product->name) }}">{{ $product->name }}</a>
                                         </td>
                                         <td>{{ $product->price }}</td>
                                         <td>{{ $product->product }}</td>

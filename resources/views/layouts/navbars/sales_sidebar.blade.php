@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="navbar-nav w-100">
-            <a href="#" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+            <a href="/page" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                         class="fa fa-laptop me-2"></i>Products</a>
@@ -58,7 +58,7 @@
                     <li><i class="fa fa-user"></i> {{ Auth::user()->name }}:</li>
                     <form id="logout-form" action="{{ url('logout') }}" method="POST">
                         @csrf
-                        <button type="submit">Logout</button>
+                        <button type="submit" class="btn">Logout</button>
                     </form>
                 @endif
             </div>

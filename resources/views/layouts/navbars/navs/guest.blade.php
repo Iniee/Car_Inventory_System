@@ -1,5 +1,6 @@
+<div class="container-fluid">
 <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent fixed-top">
-    <div class="container-fluid">
+    
         <div class="navbar-wrapper">
             <div class="navbar-toggle d-inline">
                 <button type="button" class="navbar-toggler">
@@ -8,7 +9,7 @@
                     <span class="navbar-toggler-bar bar3"></span>
                 </button>
             </div>
-            <a class="navbar-brand" href="#">{{ $page ?? '' }}</a>
+            <a class="fw-bolder text-bg-primary" style="font-size: 30px; font-weight: 700px; font-family: 'Poppins', sans-serif;" href="#">CAR INVENTORY SYSTEM</a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -22,7 +23,7 @@
                         <i class="tim-icons icon-minimal-left"></i> Home
                     </a> --}}
                 </li>
-                <li class="nav-item ">
+                {{-- <li class="nav-item ">
                     <a href="{{ route('register') }}" class="nav-link">
                         <i class="tim-icons icon-laptop"></i> Register
                     </a>
@@ -31,7 +32,7 @@
                     <a href="{{ route('login') }}" class="nav-link">
                         <i class="tim-icons icon-single-02"></i> Login
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

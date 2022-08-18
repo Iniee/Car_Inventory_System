@@ -1,4 +1,6 @@
-@extends('layouts.app', ['class' => 'login-page', 'page' => 'Laravel Inventory', 'contentClass' => 'login-page', 'section' => 'auth'])
+{{-- @extends('layouts.navbars.user_sidebar') --}}
+
+@extends('layouts.app', ['class' => 'login-page', 'page' => 'Laravel Inventory', 'section' => 'auth'])
 
 @section('content')
     <div class="col-lg-4 col-md-6 ml-auto mr-auto">
@@ -33,9 +35,9 @@
                 <div class="card-footer">
                     <button type="submit" href="" class="btn btn-primary btn-lg btn-block mb-3">Log in</button>
                     <div class="pull-left">
-                        <h6>
+                        {{-- <h6>
                             <a href="{{ route('register') }}" class="link footer-link">Create Account</a>
-                        </h6>
+                        </h6> --}}
                     </div>
                     {{-- <div class="pull-right">
                         <h6>

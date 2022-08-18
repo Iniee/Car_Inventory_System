@@ -1,4 +1,7 @@
+{{-- @extends('layouts.navbars.user_sidebar') --}}
+
 <!--@extends('layouts.app', ['page' => 'List of Categories', 'pageSlug' => 'categories', 'section' => 'inventory'])-->
+
 @section('content')
     <div class="row">
         <div class="col-md-12">

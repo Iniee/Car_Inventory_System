@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\SalesController;
 use App\Models\Product;
+use App\Models\Sold;
 use App\Models\ProductCategory;
 
 /*
@@ -27,8 +28,10 @@ use App\Models\ProductCategory;
 
 
 Route::get('/page', function () {
+    $solds = Sold::all();
     if (Auth::user()->is_admin == '1'){
-        return view('users.dashboard');
+
+        return view('users.dashboard', compact('solds'));
     }
     
     return view('sales.sales_dashboard');
@@ -59,6 +62,7 @@ Route::any('catergory/edit/{category}', [ProductCategoryController::class, 'edit
 Route::any('catergory/update/{category}', [ProductCategoryController::class, 'update'])->name('categories.update');
 Route::delete('delete/catergory/{category}', [ProductCategoryController::class, 'destroy'])->name('categories.destroy');
 Route::any('catergory/index', [ProductCategoryController::class, 'index'])->name('categories.index');
+// Route::any('users/dashboard', [])->name('users.dashboard');
 
 });
 
@@ -78,12 +82,14 @@ Route::prefix('product')->middleware('auth')->group(function () {
 Route::any('create', [ProductController::class, 'create'])->name('products.create');
 Route::any('index', [ProductController::class, 'index'])->name('products.index');
 Route::any('sell/index', [SalesController::class, 'index'])->name('sales.index');
-Route::get('sales/show/{product}', [ProductController::class, 'show']);
+Route::get('sales/show/{product}', [SalesController::class, 'show']);
+Route::any('sales/update/{id}', [SalesController::class, 'update'])->name('sales.update');
+// Route::any('sold', [SalesController::class, 'sold_items'])->name('products.sold');
+
+
 
 
 });
 
 
 
-// Route::get('sell/{id}', [SalesController::class, 'select_from_listed_categories']);
-// Route::get('sell', [SalesController::class, 'sold_products']);

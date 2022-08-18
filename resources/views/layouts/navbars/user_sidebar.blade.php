@@ -1,6 +1,6 @@
 @extends('layouts.cdn')
 
-
+{{-- {{ route('users.dashboard') }} --}}
 {{-- <div class="container-fluid position-relative d-flex p-0"> --}}
 <!-- Sidebar Start -->
 <div class="sidebar pe-4 pb-3">
@@ -21,8 +21,9 @@
                 {{-- <span>Admin</span> --}}
             </div>
         </div>
+         
         <div class="navbar-nav w-100">
-            <a href="#" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+            <a href="/page" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                         class="fa fa-laptop me-2"></i>Products</a>
@@ -31,9 +32,10 @@
                     <a href=" {{ route('categories.create') }}" class="dropdown-item">Create Categories</a>
                     <a href="{{ route('products.index') }}" class="dropdown-item">Manage Products</a>
                     <a href="#" class="dropdown-item">List of Product Sold</a>
-
+                   
                 </div>
             </div>
+        
           @if (Auth::user()->is_admin==1) 
         <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
@@ -64,10 +66,10 @@
     </form> --}}
     <div class="navbar-nav align-items-center ms-auto">
         <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+            <a href="#" class="nav-link dropdown-toggle"  data-bs-toggle="dropdown">
                 <img class="rounded-circle me-lg-2" src="{{ asset('images/1.jpg') }}" alt=""
                     style="width: 40px; height: 40px;">
-                <span class="d-none d-lg-inline-flex">{{ Auth::user()->name }}</span>
+                <span class="d-none d-lg-inline-flex" >{{ Auth::user()->name }}</span>
             </a>
 
             <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
@@ -75,7 +77,7 @@
                     <li><i class="fa fa-user"></i> {{ Auth::user()->name }}:</li>
                     <form id="logout-form" action="{{ url('logout') }}" method="POST">
                         @csrf
-                        <button type="submit">Logout</button>
+                        <button type="submit" style="margin: 10px" class="btn">Logout</button>
                     </form>
                 @endif
             </div>

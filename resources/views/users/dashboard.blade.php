@@ -86,17 +86,38 @@
             <table class="table text-start align-middle table-bordered table-hover mb-0">
                 <thead>
                     <tr class="text-black">
-                        <th scope="col"><input class="form-check-input" type="checkbox"></th>
+                        {{-- <th scope="col"><input class="form-check-input" type="checkbox"></th> --}}
                         <th scope="col">Date</th>
-                        <th scope="col">Invoice</th>
+                        <th scope="col">Name</th>
                         <th scope="col">Customer</th>
                         <th scope="col">Amount</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">Quantity</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    @foreach ($solds as $item)
+                        <tr>
+                            {{-- <td><input class="form-check-input" type="checkbox"></td> --}}
+                            <td>{{$item->created_at->format('Y-m-d')}}</td>
+                            <td>{{$item->name}}</td>
+                            <td>{{Auth::user()->name}}</td>
+                            <td>{{$item->base_price}}</td>
+                            <td>{{$item->quantity_sold}}</td>
+                            <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                        </tr>
+                    @endforeach
+
+                    {{-- <tr>
+                        <td><input class="form-check-input" type="checkbox"></td>
+                        <td>01 Jan 2045</td>
+                        <td>INV-0123</td>
+                        <td>Jhon Doe</td>
+                        <td>$123</td>
+                        <td>Paid</td>
+                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                    </tr>
+                    {{-- <tr>
                         <td><input class="form-check-input" type="checkbox"></td>
                         <td>01 Jan 2045</td>
                         <td>INV-0123</td>
@@ -113,34 +134,7 @@
                         <td>$123</td>
                         <td>Paid</td>
                         <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td><input class="form-check-input" type="checkbox"></td>
-                        <td>01 Jan 2045</td>
-                        <td>INV-0123</td>
-                        <td>Jhon Doe</td>
-                        <td>$123</td>
-                        <td>Paid</td>
-                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td><input class="form-check-input" type="checkbox"></td>
-                        <td>01 Jan 2045</td>
-                        <td>INV-0123</td>
-                        <td>Jhon Doe</td>
-                        <td>$123</td>
-                        <td>Paid</td>
-                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td><input class="form-check-input" type="checkbox"></td>
-                        <td>01 Jan 2045</td>
-                        <td>INV-0123</td>
-                        <td>Jhon Doe</td>
-                        <td>$123</td>
-                        <td>Paid</td>
-                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
         </div>
