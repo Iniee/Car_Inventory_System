@@ -13,12 +13,15 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Catergory</th>
+                                <th>Quantity</th>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>{{ $products->id }}</td>
                                     <td>{{ $products->name }}</td>
                                     <td>{{ $products->category->name }}</td>
+                                    <td>{{ $products->product }}</td>
+
                                 </tr>
                             </tbody>
                         </table>
@@ -30,10 +33,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">products: {{ $products->count() }}</h4>
-                    </div>
-
-                    <form method="post" action="{{ route('products.update', $products) }}" autocomplete="off">
+                    <form method="post" action="{{ route('sales.update', $products) }}" autocomplete="off">
                         @csrf
                         @method('PUT')
                         <h6 class="heading-small text-muted mb-4">Sell Product {{ $products->name }}</h6>
@@ -59,10 +59,13 @@
                             </div>
 
                             <div class="text-center">
-                                <button type="submit" class="btn btn-success mt-4">Save</button>
+                                <button type="submit" class="btn btn-success mt-4">Submit</button>
                             </div>
                         </div>
-                    </form>
+                    </form>  
+                    </div>
+
+                
                     {{-- <div class="card-body">
                     <table class="table">
                         <thead>
@@ -89,3 +92,5 @@
         </div>
     </div>
 @endsection
+
+
