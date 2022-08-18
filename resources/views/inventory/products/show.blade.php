@@ -45,12 +45,9 @@
                         @method('PUT')  
                         {{-- <h6 class="heading-small text-muted mb-4">Sell Product {{ $products->name }}</h6> --}}
                         <div class="card-body">
-                            {{-- <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                <label class="form-control-label" for="input-name">{{ __('Name') }}</label>
-                                <input type="text" {{ $products->name ? 'readonly' : '' }} name="name" id="input-name"
-                                    class="form-control" placeholder="{{ __('Name') }}"
-                                    value="{{ old('name', $products->name) }}" autofocus>
-                            </div> --}}
+                            <input type="hidden" name="description" value="{{$products->description}}">
+                            <input type="hidden" name="product_category_id" value="{{$products->product_category_id}}">
+                            <input type="hidden" name="price" value="{{$products->price}}">
 
                             <div class="row">
                                 <div class="col-4">

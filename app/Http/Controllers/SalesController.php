@@ -40,12 +40,21 @@ class SalesController extends Controller
         $request->validate([
             'product' => 'required'
         ]);
+        
+        $sold = array(
+            "name" => $request->product_id.name,
+            "product" => $request->product,
+            "description" => $request->description,
+            "price" => $request->price,
+            "product_category_id" => $request->product_category_id
+        );
 
         if ($products->product >= $request->input('product')){
             $products->product -= $request->input('product');
             $products->save();
             
             $msg = 'Product sold';
+            $sold = DB::table('sold')->insert($sold);
             return back()->with('msg', $msg);
         }
         else if($request->input('product') == 0){
@@ -61,15 +70,9 @@ class SalesController extends Controller
     }
 
 
+//     public function sold_items(){
+//         $solds = Sold::all();
 
-
-
-
-    // public function sold_items(){
-    //     $solds = Sold::all();
-
-    //     // dd($solds);
-    //     $viewit = 'users.dashboard';
-    //     return view($viewit, compact('solds'));
-    //}
+//         return view('users.dashboard', compact('solds'));
+//     }
 }

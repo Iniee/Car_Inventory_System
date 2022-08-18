@@ -1,4 +1,5 @@
 @extends('layouts.navbars.user_sidebar')
+
 {{-- @extends('layouts.app', ['page' => __('User Management'), 'pageSlug' => 'users', 'section' => 'users']) --}}
 
 @section('content')

@@ -68,10 +68,10 @@
     </form> --}}
     <div class="navbar-nav align-items-center ms-auto">
         <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+            <a href="#" class="nav-link dropdown-toggle"  data-bs-toggle="dropdown">
                 <img class="rounded-circle me-lg-2" src="{{ asset('images/1.jpg') }}" alt=""
                     style="width: 40px; height: 40px;">
-                <span class="d-none d-lg-inline-flex">{{ Auth::user()->name }}</span>
+                <span class="d-none d-lg-inline-flex" >{{ Auth::user()->name }}</span>
             </a>
 
             <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
@@ -79,7 +79,7 @@
                     <li><i class="fa fa-user"></i> {{ Auth::user()->name }}:</li>
                     <form id="logout-form" action="{{ url('logout') }}" method="POST">
                         @csrf
-                        <button type="submit" class="btn">Logout</button>
+                        <button type="submit" style="margin: 10px" class="btn">Logout</button>
                     </form>
                 @endif
             </div>

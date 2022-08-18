@@ -27,6 +27,7 @@ use App\Models\ProductCategory;
 
 
 Route::get('/page', function () {
+    // $solds = Sold::all();
     if (Auth::user()->is_admin == '1'){
         return view('users.dashboard');
     }
