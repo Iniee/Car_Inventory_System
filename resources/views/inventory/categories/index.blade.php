@@ -1,8 +1,9 @@
-{{-- @extends('layouts.navbars.user_sidebar') --}}
+@extends('layouts.navbars.user_sidebar')
 
-<!--@extends('layouts.app', ['page' => 'List of Categories', 'pageSlug' => 'categories', 'section' => 'inventory'])-->
+{{-- <!--@extends('layouts.app', ['page' => 'List of Categories', 'pageSlug' => 'categories', 'section' => 'inventory'])--> --}}
 
 @section('content')
+<div class="container-fluid py-6">
     <div class="row">
         <div class="col-md-12">
             <div class="card ">
@@ -36,22 +37,18 @@
                                         <td>{{ $category->products->sum('product') }}</td>
                                         <td>djjd</td>
                                         <td class="td-actions text-right">
-                                            <a href="{{ route('categories.show', $category) }}" class="btn btn-link"
-                                                data-toggle="tooltip" data-placement="bottom" title="More Details">
+                                            <a href="{{ route('categories.show', $category) }}" class="btn btn-primary"
+                                                data-toggle="tooltip" data-placement="bottom"> More Details
                                                 <i class="tim-icons icon-zoom-split"></i>
-                                            </a>
-                                            <a href="{{ route('categories.edit', $category) }}" class="btn btn-link"
-                                                data-toggle="tooltip" data-placement="bottom" title="Edit Category">
-                                                <i class="tim-icons icon-pencil"></i>
                                             </a>
                                             <form action="{{ route('categories.destroy', $category) }}" method="post"
                                                 class="d-inline">
                                                 @csrf
                                                 @method('delete')
-                                                <button type="button" class="btn btn-link" data-toggle="tooltip"
+                                                <button type="button" class="btn btn-primary" data-toggle="tooltip"
                                                     data-placement="bottom" title="Delete Category"
                                                     onclick="confirm('Are you sure you want to delete this category? All products belonging to it will be deleted and the records that contain it will not be accurate.') ? this.parentElement.submit() : ''">
-                                                    <i class="tim-icons icon-simple-remove"></i>
+                                                    Delete<i class="tim-icons icon-simple-remove"></i>
                                                 </button>
                                             </form>
                                         </td>
@@ -69,4 +66,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection

@@ -17,4 +17,5 @@ class Sold extends Model
         'quantity_sold',
         'sold_by',
     ];
+    
 }

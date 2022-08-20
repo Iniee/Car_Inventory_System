@@ -1,5 +1,9 @@
+{{-- @if (Auth::user()->is_admin == '0')
+@extends('layouts.navbars.sales_sidebar') --}}
+
 @extends('layouts.navbars.user_sidebar')
-{{-- <!--@extends('layouts.app', ['page' => 'New Product', 'pageSlug' => 'products', 'section' => 'inventory'])--> --}}
+{{-- @endif --}}
+
 
 @section('content')
     <div class="container-fluid mt--7">

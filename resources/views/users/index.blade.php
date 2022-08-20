@@ -49,11 +49,16 @@
                                                         <a class="btn btn-sm btn-primary btn-icon-only"
                                                             href="{{ route('users.edit', $user) }}">{{ __('Edit') }}
                                                         </a>
+                                                        <a class="btn btn-primary btn-sm btn-icon-only"
+                                                        href="{{ route('users.destroy', $user) }}" role="button"
+                                                         aria-haspopup="true" aria-expanded="false">
+                                                        <i class="tim-icons icon-settings-gear-63">Delete</i>
+                                                       </a>
 
-                                                        <button type="button" class="btn btn-primary btn-sm btn-icon-only"
+                                                        {{-- <button type="button" class="btn btn-primary btn-sm btn-icon-only"
                                                             onclick="confirm('{{ __('Are you sure you want to delete this user?') }}') ? this.parentElement.submit() : ''">
                                                             {{ __('Delete') }}
-                                                        </button>
+                                                        </button> --}}
                                                         </div>
                                                     </form>
                                             </div>

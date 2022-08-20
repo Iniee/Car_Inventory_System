@@ -1,4 +1,9 @@
 @extends('layouts.navbars.user_sidebar')
+{{-- @if (Auth::user()->is_admin=='0') --}}
+{{-- @extends('layouts.navbars.sales_sidebar') --}}
+{{-- @else
+
+@endif --}}
 {{-- <!--@extends('layouts.app', ['page' => 'Edit Product', 'pageSlug' => 'products', 'section' => 'inventory'])--> --}}
 
 @section('content')

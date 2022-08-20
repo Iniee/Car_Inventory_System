@@ -25,11 +25,10 @@
                 <div class="dropdown-menu bg-transparent border-0">
                     <a href="{{ route('products.create') }}" class="dropdown-item">Create Product</a>
                     <a href="{{ route('products.index') }}" class="dropdown-item">List of Product</a>
-                    <a href="#" class="dropdown-item">Sell Product</a>
+                    <a href="{{ route('sales.index') }}" class="dropdown-item">Sell Product</a>
                     <a href="#" class="dropdown-item">List of Product Sold</a>
                 </div>
             </div>
-
         </div>
     </nav>
 </div>

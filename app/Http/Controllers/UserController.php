@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -97,6 +98,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        // $deleted = DB::delete($user);
         $user->delete();
 
         return redirect()->route('users.index')->withStatus('User successfully deleted.');

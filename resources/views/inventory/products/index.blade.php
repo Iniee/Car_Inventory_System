@@ -1,7 +1,12 @@
+@if (Auth::user()->is_admin=='0')
+@extends('layouts.navbars.sales_sidebar')
+@else
 @extends('layouts.navbars.user_sidebar')
+@endif
 {{-- <!--@extends('layouts.app', ['page' => 'List of Products', 'pageSlug' => 'products', 'section' => 'inventory'])--> --}}
 
 @section('content')
+<div class="container-fluid mt--7">
     <div class="row">
         <div class="col-md-12">
             <div class="card ">
@@ -62,4 +67,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection
