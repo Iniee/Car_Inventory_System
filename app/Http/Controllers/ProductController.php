@@ -100,4 +100,13 @@ class ProductController extends Controller
             ->route('products.index')
             ->withStatus('Product removed successfully.');
     }
+
+    /**
+     * DRAW INVENTORY DATA FROM DB
+     */
+
+    //  public function draw()
+    //  {
+    //     $inventory_draw = Product ::
+    //  }
 }
