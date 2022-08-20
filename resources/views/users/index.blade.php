@@ -36,32 +36,39 @@
                                         </td>
                                         <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
                                         <td class="text-right">
-                                            {{-- <a class="btn btn-sm btn-icon-only text-black"
+                                            {{-- <a class="btn btn-primary btn-sm btn-icon-only"
                                                 href="{{ route('users.destroy', $user) }}" role="button"
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                                                 <i class="tim-icons icon-settings-gear-63">Delete</i>
                                             </a> --}}
                                             <div class="one">
-                                                @if (auth()->user()->is_admin == '1' && '2')
+                                                {{-- @if (auth()->user()->is_admin == '1' && '2') --}}
                                                     <form action="{{ route('users.destroy', $user) }}" method="post">
                                                         <div class="one-grid">
                                                             <a class="btn btn-sm btn-primary btn-icon-only"
                                                                 href="{{ route('users.edit', $user) }}">{{ __('Edit') }}
                                                             </a>
 
-                                                            <button type="button"
+                                                            {{-- <button type="button"
                                                                 class="btn btn-primary btn-sm btn-icon-only"
                                                                 onclick="confirm('{{ __('Are you sure you want to delete this user?') }}') ? this.parentElement.submit() : ''">
                                                                 {{ __('Delete') }}
-                                                            </button>
+                                                            </button> --}}
+                                                            <a class="btn btn-primary btn-sm btn-icon-only"
+                                                             href="{{ route('users.destroy', $user) }}" role="button"
+                                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                                             <i class="tim-icons icon-settings-gear-63">Delete</i>
+                                                             </a>
                                                         </div>
                                                     </form>
+                                                    
                                             </div>
-                                        @else
+                                        {{-- @else
                                             <a class="btn btn-sm btn-icon-only text-black"
                                                 href="{{ route('users.edit', $user) }}">{{ __('Edit') }}</a>
-                                @endif
+                                @endif --}}
 
                                 </td>
                                 </tr>

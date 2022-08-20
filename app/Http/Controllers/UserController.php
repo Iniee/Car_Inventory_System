@@ -96,10 +96,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(User $user, $delete)
     {
-        // $deleted = DB::delete($user);
-        $user->delete();
+        $deleted = DB::delete($user);
+        // $user->delete();
 
         return redirect()->route('users.index')->withStatus('User successfully deleted.');
     }
