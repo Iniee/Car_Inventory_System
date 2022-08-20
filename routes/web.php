@@ -28,13 +28,17 @@ use App\Models\ProductCategory;
 
 
 Route::get('/page', function () {
-    $solds = Sold::all();
     if (Auth::user()->is_admin == '1'){
 
+        $solds = Sold::all();
         return view('users.dashboard', compact('solds'));
     }
+    else{
+        $solds = Sold::where('sold_by', '=', auth()->user()->name)->get();
+
+        return view('sales.sales_dashboard', compact('solds'));
+    }
     
-    return view('sales.sales_dashboard');
 });
 
 // Route::get('/side', function() {
@@ -44,26 +48,26 @@ Route::get('/page', function () {
 Auth::routes();
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
-Route::any('/create/user', [UserController::class, 'create'])->name('users.create');
-Route::any('/index/user', [UserController::class, 'index'])->name('users.index');
-Route::any('/store/user', [UserController::class, 'store'])->name('users.store');
-Route::any('user/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
-Route::put('user/update/{user}', [UserController::class, 'update'])->name('users.update');
-Route::delete('destroy/user/{user}', [UserController::class, 'destroy'])->name('users.destroy');
-Route::post('product/store/', [ProductController::class, 'store'])->name('products.store');
-Route::any('product/edit/{product}', [ProductController::class, 'edit'])->name('products.edit');
-Route::put('product/update/{product}', [ProductController::class, 'update'])->name('products.update');
-Route::delete('delete/product/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+    Route::any('/create/user', [UserController::class, 'create'])->name('users.create');
+    Route::any('/index/user', [UserController::class, 'index'])->name('users.index');
+    Route::any('/store/user', [UserController::class, 'store'])->name('users.store');
+    Route::any('user/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
+    Route::put('user/update/{user}', [UserController::class, 'update'])->name('users.update');
+    Route::delete('destroy/user/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+    Route::post('product/store/', [ProductController::class, 'store'])->name('products.store');
+    Route::any('product/edit/{product}', [ProductController::class, 'edit'])->name('products.edit');
+    Route::put('product/update/{product}', [ProductController::class, 'update'])->name('products.update');
+    Route::delete('delete/product/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 
-Route::any('catergory/store/', [ProductCategoryController::class, 'store'])->name('categories.store');
-Route::any('catergory/create', [ProductCategoryController::class, 'create'])->name('categories.create');
-Route::any('catergory/show/{category}', [ProductCategoryController::class, 'show'])->name('categories.show');
-Route::any('catergory/edit/{category}', [ProductCategoryController::class, 'edit'])->name('categories.edit');
-Route::any('catergory/update/{category}', [ProductCategoryController::class, 'update'])->name('categories.update');
-Route::delete('delete/catergory/{category}', [ProductCategoryController::class, 'destroy'])->name('categories.destroy');
-Route::any('catergory/index', [ProductCategoryController::class, 'index'])->name('categories.index');
-// Route::any('users/dashboard', [])->name('users.dashboard');
-Route::any('sales/list', [SalesController::class, 'soldItem'])->name('sold.item');
+    Route::any('catergory/store/', [ProductCategoryController::class, 'store'])->name('categories.store');
+    Route::any('catergory/create', [ProductCategoryController::class, 'create'])->name('categories.create');
+    Route::any('catergory/show/{category}', [ProductCategoryController::class, 'show'])->name('categories.show');
+    Route::any('catergory/edit/{category}', [ProductCategoryController::class, 'edit'])->name('categories.edit');
+    Route::any('catergory/update/{category}', [ProductCategoryController::class, 'update'])->name('categories.update');
+    Route::delete('delete/catergory/{category}', [ProductCategoryController::class, 'destroy'])->name('categories.destroy');
+    Route::any('catergory/index', [ProductCategoryController::class, 'index'])->name('categories.index');
+    // Route::any('users/dashboard', [])->name('users.dashboard');
+    Route::any('sales/list', [SalesController::class, 'soldItem'])->name('sold.item');
 
 
 });
