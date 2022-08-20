@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Sold extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'product_category_id',
+        'base_price',
+        'total_price',
+        'quantity_sold',
+        'sold_by',
+    ];
+
+
+    public function category()
+    {
+      return $this->belongsTo( ProductCategory::class, 'product_category_id');    
+    }
 }

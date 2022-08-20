@@ -1,4 +1,7 @@
+{{-- @extends('layouts.navbars.user_sidebar') --}}
+
 <!--@extends('layouts.app', ['page' => 'List of Categories', 'pageSlug' => 'categories', 'section' => 'inventory'])-->
+
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -22,7 +25,7 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">products</th>
                                 <th scope="col">Total product</th>
-                                <th scope="col">Average Price of Product</th>
+                                <th scope="col">Creation Time</th>
                                 <th scope="col"></th>
                             </thead>
                             <tbody>
@@ -31,7 +34,7 @@
                                         <td>{{ $category->name }}</td>
                                         <td>{{ count($category->products) }}</td>
                                         <td>{{ $category->products->sum('product') }}</td>
-                                        <td>djjd</td>
+                                        <td>{{ $category->created_at }}</td>
                                         <td class="td-actions text-right">
                                             <a href="{{ route('categories.show', $category) }}" class="btn btn-link"
                                                 data-toggle="tooltip" data-placement="bottom" title="More Details">
@@ -60,7 +63,7 @@
                 </div>
                 <div class="card-footer py-4">
                     <nav class="d-flex justify-content-end" aria-label="...">
-                        {{ $categories->links() }}
+                        {{ $categories->links('pagination::bootstrap-5') }}
                     </nav>
                 </div>
             </div>

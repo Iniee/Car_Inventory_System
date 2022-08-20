@@ -6,14 +6,19 @@ use App\Http\Requests\ProductRequest;
 use Illuminate\Http\Request;
 use App\Models\ProductCategory;
 use App\Models\Product;
-use App\Models\Sales;
 use App\Models\Sold;
 use Illuminate\Support\Facades\DB;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class SalesController extends Controller
 {
    
-     public function index()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
         
         $products = Product::paginate(25);
@@ -35,42 +40,47 @@ class SalesController extends Controller
         $request->validate([
             'product' => 'required'
         ]);
+        $unit_price = $request->price;
+        $quantity = $request->product;
+        $total_price = $unit_price * $quantity;
+        
+        $sold = array(
+            "name" => $request->name,
+            "quantity_sold" => $request->product,
+            "base_price" => $request->price,
+            "total_price" => $total_price,
+            "sold_by" => auth()->user()->name,
+            "product_category_id" => $request->product_category_id
+        );
 
-        if ($products->product >= $request->input('product')){
+        // if($request->input('product') == 0){
+        //     $msg = 'Product should be more than zero';
+        //     return back()->with('msg', $msg);        
+        // }
+        
+        // else 
+        if ($products->product >= $request->input('product') && $request->input('product') != 0 ){
             $products->product -= $request->input('product');
             $products->save();
             
             $msg = 'Product sold';
-            return back()->with('msg', $msg);
+            Sold::create($sold);
+                        
+            return redirect('product/sell/index')->with('message', $msg);
         }
-        else if($request->input('product') == 0){
-            $msg = 'Product should be more than zero';
-            return back()->with('msg', $msg);        
-        }
+        
         else{
             $err = "Not enough";
             return back()->with('err', $err);
         }
+        
+       
     }
 
 
-
-    public function store(Request $request)
+    public function soldItem()
     {
-
-        if (Product::where('id', '=', $request->get('product_id'))->count() > 0) {
-            $this->validate($request, [
-                'quantity' => 'required|integer|min:1'
-            ]);
-
-            $sale = Sales::create([
-                'product_id' => $request->get('product_id'),
-                'quantity' => $request->get('quantity')
-            ]);
-            $sale->save();
-            return redirect('')->with('success', 'Product Sold!');
-        } else {
-            return redirect('/sales')->with('error', 'Product doesn\'t exist!');
-        }
+        return view('sales.admin_sold_table',  [
+         'solds' => Sold::paginate(10) ]);
     }
 }

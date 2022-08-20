@@ -287,3 +287,14 @@
     background: var(--dark);
     border-color: var(--primary);
 }
+
+.one{
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 10px;
+}
+
+.user_title{
+    margin-left: 10px;
+    margin-right: 0px;
+}
