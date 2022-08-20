@@ -66,7 +66,7 @@
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group{{ $errors->has('price') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="input-price">Price</label>
+                                            <label class="form-control-label" for="input-price">Unit Price</label>
                                             <input type="number" step=".01" name="price" id="input-price"
                                                 class="form-control form-control-alternative" placeholder="Price"
                                                 value="{{ old('price') }}" required>

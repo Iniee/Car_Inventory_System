@@ -31,15 +31,17 @@ Route::get('/page', function () {
     $solds = Sold::all();
     if (Auth::user()->is_admin == '1'){
 
+        $solds = Sold::latest()->paginate(10);
         return view('users.dashboard', compact('solds'));
     }
-    
+    else{
+        $solds = Sold::where('sold_by', '=', auth()->user()->name)->get();
+
+        return view('sales.sales_dashboard', compact('solds'));
+    }
+
     return view('sales.sales_dashboard');
 });
-
-// Route::get('/side', function() {
-//     return view('layouts.navbars.sidebar');
-// });
 
 Auth::routes();
 
