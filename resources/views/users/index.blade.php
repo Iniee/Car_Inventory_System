@@ -46,29 +46,25 @@
                                                 @if (auth()->user()->is_admin == '1' && '2')
                                                     <form action="{{ route('users.destroy', $user) }}" method="post">
                                                         <div class="one-grid">
-                                                        <a class="btn btn-sm btn-primary btn-icon-only"
-                                                            href="{{ route('users.edit', $user) }}">{{ __('Edit') }}
-                                                        </a>
-                                                        <a class="btn btn-primary btn-sm btn-icon-only"
-                                                        href="{{ route('users.destroy', $user) }}" role="button"
-                                                         aria-haspopup="true" aria-expanded="false">
-                                                        <i class="tim-icons icon-settings-gear-63">Delete</i>
-                                                       </a>
+                                                            <a class="btn btn-sm btn-primary btn-icon-only"
+                                                                href="{{ route('users.edit', $user) }}">{{ __('Edit') }}
+                                                            </a>
 
-                                                        {{-- <button type="button" class="btn btn-primary btn-sm btn-icon-only"
-                                                            onclick="confirm('{{ __('Are you sure you want to delete this user?') }}') ? this.parentElement.submit() : ''">
-                                                            {{ __('Delete') }}
-                                                        </button> --}}
+                                                            <button type="button"
+                                                                class="btn btn-primary btn-sm btn-icon-only"
+                                                                onclick="confirm('{{ __('Are you sure you want to delete this user?') }}') ? this.parentElement.submit() : ''">
+                                                                {{ __('Delete') }}
+                                                            </button>
                                                         </div>
                                                     </form>
                                             </div>
-                                                @else
-                                                    <a class="btn btn-sm btn-icon-only text-black"
-                                                        href="{{ route('users.edit', $user) }}">{{ __('Edit') }}</a>
-                                                @endif
-                                                 
-                                        </td>
-                                    </tr>
+                                        @else
+                                            <a class="btn btn-sm btn-icon-only text-black"
+                                                href="{{ route('users.edit', $user) }}">{{ __('Edit') }}</a>
+                                @endif
+
+                                </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -76,7 +72,7 @@
                 </div>
                 <div class="card-footer py-4">
                     <nav class="d-flex justify-content-end" aria-label="...">
-                        {{ $users->links() }}
+                        {{ $users->links('pagination::bootstrap-5') }}
                     </nav>
                 </div>
             </div>

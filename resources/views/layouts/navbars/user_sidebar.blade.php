@@ -21,7 +21,7 @@
                 {{-- <span>Admin</span> --}}
             </div>
         </div>
-         
+
         <div class="navbar-nav w-100">
             <a href="/page" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             <div class="nav-item dropdown">
@@ -29,25 +29,27 @@
                         class="fa fa-laptop me-2"></i>Products</a>
                 <div class="dropdown-menu bg-transparent border-0">
                     <a href="{{ route('products.create') }}" class="dropdown-item">Create Product</a>
-                    <a href=" {{ route('categories.create') }}" class="dropdown-item">Create Categories</a>
+                    @if (Auth::user()->is_admin == 1)
+                        <a href=" {{ route('categories.create') }}" class="dropdown-item">Create Categories</a>
+                    @endif
                     <a href="{{ route('products.index') }}" class="dropdown-item">Manage Products</a>
-                    <a href="#" class="dropdown-item">List of Product Sold</a>
-                   
+                    <a href="{{ route('sold.item') }}" class="dropdown-item">List of Product Sold</a>
+
                 </div>
             </div>
-        
-          @if (Auth::user()->is_admin==1) 
-        <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                    class="fa fa-laptop me-2"></i>User Management</a>
-            <div class="dropdown-menu bg-transparent border-0">
-                <a href="{{ route('users.create') }}" class="dropdown-item">Create User</a>
-                <a href="{{ route('users.index') }}" class="dropdown-item">Manage User</a>
-                
 
-            </div>
-        </div>
-    @endif
+            @if (Auth::user()->is_admin == 1)
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
+                            class="fa fa-laptop me-2"></i>User Management</a>
+                    <div class="dropdown-menu bg-transparent border-0">
+                        <a href="{{ route('users.create') }}" class="dropdown-item">Create User</a>
+                        <a href="{{ route('users.index') }}" class="dropdown-item">Manage User</a>
+
+
+                    </div>
+                </div>
+            @endif
         </div>
     </nav>
 </div>
@@ -66,10 +68,10 @@
     </form> --}}
     <div class="navbar-nav align-items-center ms-auto">
         <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle"  data-bs-toggle="dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                 <img class="rounded-circle me-lg-2" src="{{ asset('images/1.jpg') }}" alt=""
                     style="width: 40px; height: 40px;">
-                <span class="d-none d-lg-inline-flex" >{{ Auth::user()->name }}</span>
+                <span class="d-none d-lg-inline-flex">{{ Auth::user()->name }}</span>
             </a>
 
             <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">

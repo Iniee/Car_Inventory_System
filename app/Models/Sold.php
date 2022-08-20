@@ -17,5 +17,10 @@ class Sold extends Model
         'quantity_sold',
         'sold_by',
     ];
-    
+
+
+    public function category()
+    {
+      return $this->belongsTo( ProductCategory::class, 'product_category_id');    
+    }
 }

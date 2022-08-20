@@ -8,9 +8,7 @@
                         <div class="col-8">
                             <h4 class="card-title">Sell Products</h4>
                         </div>
-                        <div class="col-4 text-right">
-                            <a href="{{ route('products.create') }}" class="btn btn-sm btn-primary">New product</a>
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="card-body">
@@ -21,18 +19,20 @@
                             <thead class=" text-primary">
                                 <th scope="col">Category</th>
                                 <th scope="col">Product</th>
-                                <th scope="col">Base Price</th>
+                                <th scope="col">Unit Price</th>
                                 <th scope="col">Quantity</th>
-                                <th scope="col"></th>
+                                <th scope="col">Action</th>
                             </thead>
                             <tbody>
                                 @foreach ($products as $product)
                                     <tr>
                                         <td>{{ $product->category->name }}</td>
-                                        <td><a href="{{ url('product/sales/show', $product->name) }}">{{ $product->name }}</a>
-                                        </td>
-                                        <td>{{ $product->price }}</td>
+                                        <td>{{ $product->name }}</td>
+                                        <td>&#8358; {{ $product->price }}</td>
                                         <td>{{ $product->product }}</td>
+                                        <td>  <a class="btn btn-sm btn-primary btn-icon-only"
+                                                            href="{{ url('product/sales/show', $product->name) }}">{{ __('SELL') }}
+                                                        </a> </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -41,7 +41,7 @@
                 </div>
                 <div class="card-footer py-4">
                     <nav class="d-flex justify-content-end">
-                        {{ $products->links() }}
+                        {{ $products->links('pagination::bootstrap-5') }}
                     </nav>
                 </div>
             </div>

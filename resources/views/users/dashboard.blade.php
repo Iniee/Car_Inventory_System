@@ -3,122 +3,150 @@
 {{-- , ['page' => __('User Management'), 'pageSlug' => 'users', 'section' => 'users'] --}}
 
 @section('content')
- <!-- Sale & Revenue Start -->
- <div class="container-fluid pt-4 px-4">
-    <div class="row g-4">
-        <div class="col-sm-6 col-xl-3">
-            <div class=" bg-light rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fa fa-chart-line fa-3x text-primary"></i>
-                <div class="ms-3">
-                    <p class="mb-2">Today Sale</p>
-                    <h6 class="mb-0">$1234</h6>
+    <!-- Sale & Revenue Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div class="col-sm-6 col-xl-3">
+                <div class=" bg-light rounded d-flex align-items-center justify-content-between p-4">
+                    <i class="fa fa-chart-line fa-3x text-primary"></i>
+                    <div class="ms-3">
+                        <p class="mb-2">Today Sale</p>
+                        <h6 class="mb-0">$1234</h6>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-            <div class=" bg-light rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                <div class="ms-3">
-                    <p class="mb-2">Total Sale</p>
-                    <h6 class="mb-0">$1234</h6>
+            <div class="col-sm-6 col-xl-3">
+                <div class=" bg-light rounded d-flex align-items-center justify-content-between p-4">
+                    <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                    <div class="ms-3">
+                        <p class="mb-2">Total Sale</p>
+                        <h6 class="mb-0">$1234</h6>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-            <div class=" bg-light rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fa fa-chart-area fa-3x text-primary"></i>
-                <div class="ms-3">
-                    <p class="mb-2">Today Revenue</p>
-                    <h6 class="mb-0">$1234</h6>
+            <div class="col-sm-6 col-xl-3">
+                <div class=" bg-light rounded d-flex align-items-center justify-content-between p-4">
+                    <i class="fa fa-chart-area fa-3x text-primary"></i>
+                    <div class="ms-3">
+                        <p class="mb-2">Today Revenue</p>
+                        <h6 class="mb-0">$1234</h6>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-            <div class=" bg-light rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                <div class="ms-3">
-                    <p class="mb-2">Total Revenue</p>
-                    <h6 class="mb-0">$1234</h6>
+            <div class="col-sm-6 col-xl-3">
+                <div class=" bg-light rounded d-flex align-items-center justify-content-between p-4">
+                    <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                    <div class="ms-3">
+                        <p class="mb-2">Total Revenue</p>
+                        <h6 class="mb-0">$1234</h6>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Sale & Revenue End -->
+    <!-- Sale & Revenue End -->
 
 
-<!-- Sales Chart Start -->
-<div class="container-fluid pt-4 px-4">
-    <div class="row g-4">
-        <div class="col-sm-12 col-xl-6">
-            <div class=" bg-light text-center rounded p-4">
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">Worldwide Sales</h6>
-                    <a href="#">Show All</a>
+    <!-- Sales Chart Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            <div class="col-sm-12 col-xl-6">
+                <div class=" bg-light text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Worldwide Sales</h6>
+                        <a href="">Show All</a>
+                    </div>
+
+                    <canvas id="worldwide-sales"></canvas>
+
                 </div>
-                
-                <canvas id="worldwide-sales"></canvas>
-            
             </div>
-        </div>
-        <div class="col-sm-12 col-xl-6">
-            <div class=" bg-light text-center rounded p-4">
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">Salse & Revenue</h6>
-                    <a href="#">Show All</a>
+            <div class="col-sm-12 col-xl-6">
+                <div class=" bg-light text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Salse & Revenue</h6>
+                        <a href="">Show All</a>
+                    </div>
+                    <canvas id="salse-revenue"></canvas>
                 </div>
-                <canvas id="salse-revenue"></canvas>
             </div>
         </div>
     </div>
-</div>
-<!-- Sales Chart End -->
+    <!-- Sales Chart End -->
 
 
-<!-- Recent Sales Start -->
-<div class="container-fluid pt-4 px-4">
-    <div class=" bg-light text-center rounded p-4">
-        <div class="d-flex align-items-center justify-content-between mb-4">
-            <h6 class="mb-0">Recent Sales</h6>
-            <a href="admin/users/user_sold">Show All</a>
-        </div>
-        <div class="table-responsive">
-            <table class="table text-start align-middle table-bordered table-hover mb-0">
-                <thead>
-                    <tr class="text-black">
-                        {{-- <th scope="col"><input class="form-check-input" type="checkbox"></th> --}}
-                        <th scope="col">Date</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Customer</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($solds as $item)
-                        <tr>
-                            {{-- <td><input class="form-check-input" type="checkbox"></td> --}}
-                            <td>{{$item->created_at->format('Y-m-d')}}</td>
-                            <td>{{$item->name}}</td>
-                            <td>{{Auth::user()->name}}</td>
-                            <td>{{$item->total_price}}</td>
-                            <td>{{$item->quantity_sold}}</td>
-                            <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+    <!-- Recent Sales Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class=" bg-light text-center rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0">Recent Sales</h6>
+                <a href="">Show All</a>
+            </div>
+            <div class="table-responsive">
+                <table class="table text-start align-middle table-bordered table-hover mb-0">
+                    <thead>
+                        <tr class="text-black">
+                            {{-- <th scope="col"><input class="form-check-input" type="checkbox"></th> --}}
+                            <th scope="col">Date</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Customer</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Action</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($solds as $item)
+                            <tr>
+                                {{-- <td><input class="form-check-input" type="checkbox"></td> --}}
+                                <td>{{ $item->created_at->format('Y-m-d') }}</td>
+                                <td>{{ $item->name }}</td>
+                                <td>{{ Auth::user()->name }}</td>
+                                <td>{{ $item->base_price }}</td>
+                                <td>{{ $item->quantity_sold }}</td>
+                                <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                            </tr>
+                        @endforeach
+
+                        {{-- <tr>
+                        <td><input class="form-check-input" type="checkbox"></td>
+                        <td>01 Jan 2045</td>
+                        <td>INV-0123</td>
+                        <td>Jhon Doe</td>
+                        <td>$123</td>
+                        <td>Paid</td>
+                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                    </tr>
+                    {{-- <tr>
+                        <td><input class="form-check-input" type="checkbox"></td>
+                        <td>01 Jan 2045</td>
+                        <td>INV-0123</td>
+                        <td>Jhon Doe</td>
+                        <td>$123</td>
+                        <td>Paid</td>
+                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                    </tr>
+                    <tr>
+                        <td><input class="form-check-input" type="checkbox"></td>
+                        <td>01 Jan 2045</td>
+                        <td>INV-0123</td>
+                        <td>Jhon Doe</td>
+                        <td>$123</td>
+                        <td>Paid</td>
+                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                    </tr> --}}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
-<!-- Recent Sales End -->
+    <!-- Recent Sales End -->
 
 
-<!-- Widgets Start -->
-<div class="container-fluid pt-4 px-4">
-    <div class="row g-4">
-        {{-- <div class="col-sm-12 col-md-6 col-xl-4">
+    <!-- Widgets Start -->
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            {{-- <div class="col-sm-12 col-md-6 col-xl-4">
             <div class="h-100  bg-light rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-2">
                     <h6 class="mb-0">Messages</h6>
@@ -166,7 +194,7 @@
                 </div>
             </div>
         </div> --}}
-        {{-- <div class="col-sm-12 col-md-6 col-xl-4">
+            {{-- <div class="col-sm-12 col-md-6 col-xl-4">
             <div class="h-100  bg-light rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h6 class="mb-0">Calender</h6>
@@ -234,10 +262,5 @@
         </div>
     </div>
 </div> --}}
-<!-- Widgets End -->
-
-
-
-@endsection
-
-
+            <!-- Widgets End -->
+        @endsection

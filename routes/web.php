@@ -65,8 +65,9 @@ Route::any('catergory/edit/{category}', [ProductCategoryController::class, 'edit
 Route::any('catergory/update/{category}', [ProductCategoryController::class, 'update'])->name('categories.update');
 Route::delete('delete/catergory/{category}', [ProductCategoryController::class, 'destroy'])->name('categories.destroy');
 Route::any('catergory/index', [ProductCategoryController::class, 'index'])->name('categories.index');
-Route::any('users/user_sold')->name('users.sold');
 // Route::any('users/dashboard', [])->name('users.dashboard');
+Route::any('sales/list', [SalesController::class, 'soldItem'])->name('sold.item');
+
 
 });
 
@@ -85,15 +86,9 @@ Route::get('/', function () {
 Route::prefix('product')->middleware('auth')->group(function () {
 Route::any('create', [ProductController::class, 'create'])->name('products.create');
 Route::any('index', [ProductController::class, 'index'])->name('products.index');
-Route::any('sales/index', [SalesController::class, 'index'])->name('sales.index');
-Route::get('sales/show/{product}', [SalesController::class, 'show']);
+Route::any('sell/index', [SalesController::class, 'index'])->name('sales.index');
+Route::get('sales/show/{product}', [ProductController::class, 'show'])->name('sale.show');
 Route::any('sales/update/{id}', [SalesController::class, 'update'])->name('sales.update');
-Route::any('sales/sales_sold')->name('sales.sold');
-// Route::any('catergory/show/{category}', [ProductCategoryController::class, 'show'])->name('categories.show');
-// Route::any('sold', [SalesController::class, 'sold_items'])->name('products.sold');
-
+Route::any('sales/list', [SalesController::class, 'salesoldItem'])->name('sales.item');
 
 });
-
-
-

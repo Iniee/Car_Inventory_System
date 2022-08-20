@@ -1,10 +1,4 @@
-{{-- @extends(Session::get('userlayout', 'layouts.default')) --}}
-
-{{-- @if (Auth::user()->is_admin=='0') --}}
-@extends('layouts.navbars.sales_sidebar')
-{{-- @else
-@extends('layouts.navbars.user_sidebar') --}}
-@endif
+@extends('layouts.navbars.user_sidebar')
 
 {{-- <!--@extends('layouts.app', ['page' => 'New Product', 'pageSlug' => 'products', 'section' => 'inventory'])--> --}}
 
@@ -23,15 +17,13 @@
                                 <th>Name</th>
                                 <th>Catergory</th>
                                 <th>Quantity</th>
-                                <th>Price</th>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>{{ $products->id }}</td>
                                     <td>{{ $products->name }}</td>
                                     <td>{{ $products->category->name }}</td>
-                                    <td>{{ $products->product}}</td>
-                                    <td>{{ $products->price}}</td>
+                                    <td>{{ $products->product }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -48,13 +40,16 @@
 
                     <form method="post" action="{{ route('sales.update', $products) }}" autocomplete="off">
                         @csrf
-                        @method('PUT')  
-                        {{-- <h6 class="heading-small text-muted mb-4" name="name">Sell Product {{ $products->name }}</h6> --}}
+                        @method('PUT')
+                        {{-- <h6 class="heading-small text-muted mb-4">Sell Product {{ $products->name }}</h6> --}}
                         <div class="card-body">
-                            <input type="hidden" name="name" value="{{$products->name}}">
-                            <input type="hidden" name="sold_by" value="{{Auth::user()->name}}">
-                            <input type="hidden" name="product_category_id" value="{{$products->product_category_id}}">
-                            <input type="hidden" name="base_price" value="{{$products->price}}">
+                            <input type="hidden" name="name" value="{{ $products->name }}">
+                            <input type="hidden" name="description" value="{{ $products->description }}">
+                            <input type="hidden" name="product_category_id" value="{{ $products->product_category_id }}">
+                            <input type="hidden" name="price" value="{{ $products->price }}">
+                            <input type="hidden" name="quantity_sold" value="{{ $products->quantity_sold }}">
+
+
 
                             <div class="row">
                                 <div class="col-4">

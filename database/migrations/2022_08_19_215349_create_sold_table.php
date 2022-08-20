@@ -17,13 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('product_category_id');
-            $table->unsignedDecimal('base_price', 10, 2);
-            $table->unsignedDecimal('total_price', 10, 2);
+            $table->unsignedDecimal('base_price', 50, 2);
+            $table->unsignedDecimal('total_price', 50, 2);
             $table->unsignedinteger('quantity_sold')->default(0);
             $table->foreign('product_category_id')->references('id')->on('productcategories');
             $table->string('sold_by');
             $table->timestamps();
-        });
+       });
     }
 
     /**
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('solds');
+        Schema::dropIfExists('sold');
     }
 };

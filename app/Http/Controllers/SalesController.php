@@ -40,41 +40,47 @@ class SalesController extends Controller
         $request->validate([
             'product' => 'required'
         ]);
+        $unit_price = $request->price;
+        $quantity = $request->product;
+        $total_price = $unit_price * $quantity;
         
         $sold = array(
             "name" => $request->name,
             "quantity_sold" => $request->product,
-            "base_price" => $request->base_price,
-            "total_price" => ($request->base_price * $request->product),
-            "sold_by" => $request->sold_by,
+            "base_price" => $request->price,
+            "total_price" => $total_price,
+            "sold_by" => auth()->user()->name,
             "product_category_id" => $request->product_category_id
         );
-
-        if ($products->product >= $request->input('product')){
+        
+        if ($products->product >= $request->input('product') && $request->input('product') != 0 ){
             $products->product -= $request->input('product');
             $products->save();
             
             $msg = 'Product sold';
-            // DB::table('solds')->create($sold);
             Sold::create($sold);
-            return back()->with('msg', $msg);
+                        
+            return redirect('product/sell/index')->with('message', $msg);
         }
-        else if($request->input('product') == 0){
-            $msg = 'Product should be more than zero';
-            return back()->with('msg', $msg);        
-        }
+        
         else{
             $err = "Not enough";
             return back()->with('err', $err);
         }
         
-        
+       
     }
 
 
-//     public function sold_items(){
-//         $solds = Sold::all();
+    public function soldItem()
+    {
+        return view('sales.admin_sold_table',  [
+         'solds' => Sold::latest()->paginate(10) ]);
+    }
 
-//         return view('users.dashboard', compact('solds'));
-//     }
+   public function salesoldItem()
+    {
+        return view('sales.sale_sold_table',  [
+         'solds' => Sold::where('sold_by', '=', auth()->user()->name)->latest()->paginate(10) ]);
+    }
 }
