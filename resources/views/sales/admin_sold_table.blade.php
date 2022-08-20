@@ -51,9 +51,9 @@
                                         <td>{{ $sold->id }}</td>
                                         <td>{{ $sold->name }}</td>
                                         <td>{{ $sold->category->name}}</td>
-                                        <td>{{ $sold->base_price }}</td>
+                                        <td>&#8358 {{ $sold->base_price }}</td>
                                         <td>{{ $sold->quantity_sold }}</td>
-                                        <td>{{ $sold->total_price }}</td>
+                                        <td>&#8358 {{ $sold->total_price }}</td>
                                         <td>{{ $sold->created_at }}</td>
                                         <td>{{ $sold->sold_by }}</td>
                                     </tr>
