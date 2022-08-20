@@ -86,6 +86,6 @@ Route::any('index', [ProductController::class, 'index'])->name('products.index')
 Route::any('sell/index', [SalesController::class, 'index'])->name('sales.index');
 Route::get('sales/show/{product}', [ProductController::class, 'show'])->name('sale.show');
 Route::any('sales/update/{id}', [SalesController::class, 'update'])->name('sales.update');
-//Route::any('sales/list', [SalesController::class, 'soldItem'])->name('sold.item');
+Route::any('sales/list', [SalesController::class, 'salesoldItem'])->name('sales.item');
 
 });

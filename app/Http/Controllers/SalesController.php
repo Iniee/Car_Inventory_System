@@ -52,13 +52,7 @@ class SalesController extends Controller
             "sold_by" => auth()->user()->name,
             "product_category_id" => $request->product_category_id
         );
-
-        // if($request->input('product') == 0){
-        //     $msg = 'Product should be more than zero';
-        //     return back()->with('msg', $msg);        
-        // }
         
-        // else 
         if ($products->product >= $request->input('product') && $request->input('product') != 0 ){
             $products->product -= $request->input('product');
             $products->save();
@@ -81,6 +75,12 @@ class SalesController extends Controller
     public function soldItem()
     {
         return view('sales.admin_sold_table',  [
-         'solds' => Sold::paginate(10) ]);
+         'solds' => Sold::latest()->paginate(10) ]);
+    }
+
+   public function salesoldItem()
+    {
+        return view('sales.sale_sold_table',  [
+         'solds' => Sold::where('sold_by', '=', auth()->user()->name)->latest()->paginate(10) ]);
     }
 }
