@@ -69,21 +69,21 @@
     var myChart1 = new Chart(ctx1, {
         type: "bar",
         data: {
-            labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+            labels: ["2019", "2020", "2021", "2022"],
             datasets: [{
-                    label: "USA",
-                    data: [15, 30, 55, 65, 60, 80, 95],
-                    backgroundColor: "rgba(101, 141, 200, 1)"
+                    label: "TOYOTA",
+                    data: [15, 65, 60, 80],
+                    backgroundColor: "rgba(230, 202, 25, 0.94)"
                 },
                 {
-                    label: "UK",
-                    data: [8, 35, 40, 60, 70, 55, 75],
-                    backgroundColor: "rgba(101, 141, 200, 1)"
+                    label: "BMW",
+                    data: [8, 35, 70, 55],
+                    backgroundColor: "rgba(6, 83, 255, 1)"
                 },
                 {
-                    label: "AU",
-                    data: [12, 25, 45, 55, 65, 70, 60],
-                    backgroundColor: "rgba(101, 141, 200, 1)"
+                    label: "BENZ",
+                    data: [25, 55, 65, 70],
+                    backgroundColor: "rgba(0, 0, 0, 0.94)"
                 }
             ]
             },
@@ -98,18 +98,24 @@
     var myChart2 = new Chart(ctx2, {
         type: "line",
         data: {
-            labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+            labels: ["JAN", "FEB", "MAR", "APR" , "MAY", "JUN", "JULY", "AUG", "SEP", "NOV", "DEC"],
             datasets: [{
-                    label: "Salse",
-                    data: [15, 30, 55, 45, 70, 65, 85],
-                    backgroundColor: "rgba(101, 141, 200, 1)",
-                    fill: true
+                    label: 'BMW',
+                    data: ['20', '29', '57', '72'],
+                    backgroundColor: "rgba(6, 83, 255, 1)",
+                    fill: false
                 },
                 {
-                    label: "Revenue",
-                    data: [99, 135, 170, 130, 190, 180, 270],
-                    backgroundColor: "rgba(101, 141, 200, 1)",
-                    fill: true
+                    label: 'TOYOTA',
+                    data: ['55', '49', '57', '80'],
+                    backgroundColor: "rgba(230, 202, 25, 0.94)",
+                    fill: false
+                },
+                {
+                    label: 'BENZ',
+                    data: ['31', '19', '27', '40'],
+                    backgroundColor: "rgba(0, 0, 0, 0.94)",
+                    fill: false
                 }
             ]
             },

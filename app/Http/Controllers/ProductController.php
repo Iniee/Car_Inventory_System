@@ -6,6 +6,8 @@ use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
+Use DB;
+use Illuminate\Support\Carbon;
 
 class ProductController extends Controller
 {
@@ -107,6 +109,31 @@ class ProductController extends Controller
 
     //  public function draw()
     //  {
-    //     $inventory_draw = Product ::
+        // , DB::raw("product_category_id")
+        // SELECT product_category_id,created_at, COUNT(*) FROM `products` GROUP BY 'product_category_id';
+        // $report = Product::select(DB::raw("'product_category_id','created_at',COUNT(*) as count"))->groupBY(DB::raw('product_category_id'));
+        // Carbon::parse($report->created_at)->format('M');
+
+        // $report = DB::table('products')
+        //         ->selectRaw('product_category_id','created_at','count(*)')
+        //         ->groupBy('product_category_id')
+        //         ->Carbon::parse($report->created_at)->format('M')
+        //         ->get();
+
+        // $report = DB::table('products')->select('product_category_id', 'created_at')->get();
+
+        // $report = DB::table('products')
+        // ->select(DB::raw('SUM(product) as sum_of_product'))
+        // ->groupBy('product_category_id')
+        // ->orderBy('created_at', date('M')) 
+        // ->get();
+
+        // $data =[];
+        // $data['chart_data'] = json_encode($report);
+        
+        // dd($report);
+
+        // return view ('/page', '$data');
+
     //  }
 }

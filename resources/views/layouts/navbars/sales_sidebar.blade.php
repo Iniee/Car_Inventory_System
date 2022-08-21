@@ -1,4 +1,6 @@
 @extends('layouts.cdn')
+
+
 <!-- Sidebar Start -->
 <div class="sidebar pe-4 pb-3">
     <nav class="navbar bg-white navbar-danger">
@@ -53,12 +55,12 @@
                     style="width: 40px; height: 40px;">
                 <span class="d-none d-lg-inline-flex">{{ Auth::user()->name }}</span>
             </a>
-            <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+            <div class="dropdown-menu dropdown-menu-end bg-white m-0">
                 @if (Auth::check())
                     <li><i class="fa fa-user"></i> {{ Auth::user()->name }}:</li>
                     <form id="logout-form" action="{{ url('logout') }}" method="POST">
                         @csrf
-                        <button type="submit" class="btn">Logout</button>
+                        <button type="submit" style="margin: 10px" class="btn btn-sm">Logout</button>
                     </form>
                 @endif
             </div>

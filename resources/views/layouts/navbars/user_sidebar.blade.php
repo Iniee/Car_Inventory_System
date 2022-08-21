@@ -2,6 +2,9 @@
 
 {{-- {{ route('users.dashboard') }} --}}
 {{-- <div class="container-fluid position-relative d-flex p-0"> --}}
+
+    
+    <!-- Spinner End -->
 <!-- Sidebar Start -->
 <div class="sidebar pe-4 pb-3">
     <nav class="navbar bg-white navbar-danger">
@@ -67,19 +70,18 @@
         <input class="form-control bg-white border-1" type="search" placeholder="Search">
     </form> --}}
     <div class="navbar-nav align-items-center ms-auto">
-        <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+        <div class="nav-item dropdown dropdown-center">
+            <a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown">
                 <img class="rounded-circle me-lg-2" src="{{ asset('images/1.jpg') }}" alt=""
                     style="width: 40px; height: 40px;">
                 <span class="d-none d-lg-inline-flex">{{ Auth::user()->name }}</span>
             </a>
 
-            <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+            <div class="dropdown-menu dropdown-menu-end bg-white m-0">
                 @if (Auth::check())
-                    <li><i class="fa fa-user"></i> {{ Auth::user()->name }}:</li>
                     <form id="logout-form" action="{{ url('logout') }}" method="POST">
                         @csrf
-                        <button type="submit" style="margin: 10px" class="btn">Logout</button>
+                        <button type="submit" style="margin: 10px" class="btn btn-sm">Logout</button>
                     </form>
                 @endif
             </div>
