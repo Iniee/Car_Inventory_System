@@ -128,12 +128,13 @@ class ProductController extends Controller
         // ->orderBy('created_at', date('M')) 
         // ->get();
 
-        // $data =[];
-        // $data['chart_data'] = json_encode($report);
+        // $labels = $report->keys();
+        // $data = $report->values();
         
         // dd($report);
 
-        // return view ('/page', '$data');
-
-    //  }
+    //     return view ('users.dashboard')
+    //         ->with('labels', $labels)
+    //         ->with('data', $data);
+    //   }
 }

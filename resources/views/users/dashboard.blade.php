@@ -123,8 +123,5 @@
         </div>
     </div>
     <!-- Recent Sales End -->
-
-
-    <!-- Widgets Start -->
            
         @endsection

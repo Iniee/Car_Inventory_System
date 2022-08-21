@@ -65,7 +65,7 @@ Route::delete('delete/catergory/{category}', [ProductCategoryController::class, 
 Route::any('catergory/index', [ProductCategoryController::class, 'index'])->name('categories.index');
 // Route::any('users/dashboard', [])->name('users.dashboard');
 Route::any('sales/list', [SalesController::class, 'soldItem'])->name('sold.item');
-// Route::get('/page', [ChartJSController::class, 'draw']);
+
 
 
 
