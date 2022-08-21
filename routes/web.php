@@ -28,7 +28,7 @@ use App\Models\ProductCategory;
 
 
 Route::get('/page', function () {
-    $solds = Sold::all();
+    // $solds = Sold::all();
     if (Auth::user()->is_admin == '1'){
 
         $solds = Sold::latest()->paginate(10);
@@ -40,7 +40,7 @@ Route::get('/page', function () {
         return view('sales.sales_dashboard', compact('solds'));
     }
 
-    return view('sales.sales_dashboard');
+    // return view('sales.sales_dashboard');
 });
 
 Auth::routes();
@@ -85,6 +85,7 @@ Route::get('/', function () {
 Route::prefix('product')->middleware('auth')->group(function () {
 Route::any('create', [ProductController::class, 'create'])->name('products.create');
 Route::post('store', [ProductController::class, 'store'])->name('products.store');
+// Route::any('index', [ProductController::class, 'index'])->name('products.index');
 Route::any('index', [ProductController::class, 'index'])->name('sale.products.index');
 Route::any('sell/index', [SalesController::class, 'index'])->name('sales.index');
 Route::get('sales/show/{product}', [ProductController::class, 'show'])->name('sale.show');

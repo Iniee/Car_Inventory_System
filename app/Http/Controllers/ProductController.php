@@ -51,8 +51,13 @@ class ProductController extends Controller
     {
         $product->create($request->all());
 
+        if(Auth::user()->is_admin == 1) {
+            return redirect()
+                ->route('admin.products.index')
+                ->withStatus('Product successfully registered.');
+        }
         return redirect()
-            ->route('products.index')
+            ->route('sale.products.index')
             ->withStatus('Product successfully registered.');
     }
 
