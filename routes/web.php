@@ -35,7 +35,7 @@ Route::get('/page', function () {
         return view('users.dashboard', compact('solds'));
     }
     else{
-        $solds = Sold::where('sold_by', '=', auth()->user()->name)->get();
+        $solds = Sold::where('sold_by', '=', auth()->user()->name)->latest()->paginate(2);
 
         return view('sales.sales_dashboard', compact('solds'));
     }
@@ -52,6 +52,7 @@ Route::any('/store/user', [UserController::class, 'store'])->name('users.store')
 Route::any('user/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
 Route::put('user/update/{user}', [UserController::class, 'update'])->name('users.update');
 Route::delete('destroy/user/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+Route::any('index', [ProductController::class, 'index'])->name('admin.products.index');
 Route::any('product/edit/{product}', [ProductController::class, 'edit'])->name('products.edit');
 Route::put('product/update/{product}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('delete/product/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
@@ -84,7 +85,7 @@ Route::get('/', function () {
 Route::prefix('product')->middleware('auth')->group(function () {
 Route::any('create', [ProductController::class, 'create'])->name('products.create');
 Route::post('store', [ProductController::class, 'store'])->name('products.store');
-Route::any('index', [ProductController::class, 'index'])->name('products.index');
+Route::any('index', [ProductController::class, 'index'])->name('sale.products.index');
 Route::any('sell/index', [SalesController::class, 'index'])->name('sales.index');
 Route::get('sales/show/{product}', [ProductController::class, 'show'])->name('sale.show');
 Route::any('sales/update/{id}', [SalesController::class, 'update'])->name('sales.update');

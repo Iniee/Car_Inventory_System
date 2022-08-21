@@ -62,9 +62,9 @@
                                     <div class="col-4">
                                         <div class="form-group{{ $errors->has('product') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-product">product</label>
-                                            <input type="number" name="product" id="input-product"
+                                            <input type="number" name="quantity" id="input-product"
                                                 class="form-control form-control-alternative" placeholder="product"
-                                                value="{{ old('product', $product->product) }}" required>
+                                                value="{{ old('product', $product->quantity) }}" required>
                                             {{-- @include('alerts.feedback',['field'=>'product']) --}}
                                         </div>
                                     </div>

@@ -58,8 +58,8 @@
                                     <div class="col-4">
                                         <div class="form-group{{ $errors->has('product') ? ' has-danger' : '' }}">
                                             <label class="form-control-label" for="input-product">Quantity</label>
-                                            <input type="number" name="product" id="input-product"
-                                                class="form-control form-control-alternative" placeholder="product"
+                                            <input type="number" name="quantity" id="input-product"
+                                                class="form-control form-control-alternative" placeholder="quantity"
                                                 value="{{ old('product') }}" required>
                                             @include('alerts.feedback', ['field' => 'product'])
                                         </div>

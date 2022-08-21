@@ -50,7 +50,7 @@
                                     <tr>
                                         <td><a href="{{ route('products.edit', $product) }}">{{ $product->id }}</a></td>
                                         <td><a href="{{ route('products.edit', $product) }}">{{ $product->name }}</a></td>
-                                        <td>{{ $product->product }}</td>
+                                        <td>{{ $product->quantity }}</td>
                                         <td>{{ $product->price }}</td>
                                         <td class="td-actions text-right">
                                             <a href="{{ route('products.edit', $product) }}" class="btn btn-link"

@@ -6,6 +6,7 @@ use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -17,8 +18,14 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::paginate(25);
-
-        return view('inventory.products.index', compact('products'));
+        
+        if(Auth::user()->is_admin == 1) {
+            return view('inventory.products.admin_index', compact('products'));
+        }
+        else {
+             return view('inventory.products.sales_index', compact('products'));
+        }
+        
     }
 
     /**

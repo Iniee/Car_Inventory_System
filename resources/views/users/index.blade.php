@@ -1,6 +1,5 @@
 @extends('layouts.navbars.user_sidebar')
 
-{{-- @extends('layouts.app', ['page' => __('User Management'), 'pageSlug' => 'users', 'section' => 'users']) --}}
 
 @section('content')
     <div class="row">
@@ -24,7 +23,8 @@
                             <thead class=" text-primary">
                                 <th scope="col">{{ __('Name') }}</th>
                                 <th scope="col">{{ __('Email') }}</th>
-                                <th scope="col">{{ __('Creation Date') }}</th>
+                                <th scope="col">{{ __('Date') }}</th>
+                                <th scope="col">{{ __('Time') }}</th>
                                 <th scope="col">Actions</th>
                             </thead>
                             <tbody>
@@ -34,7 +34,8 @@
                                         <td>
                                             <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
                                         </td>
-                                        <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
+                                        <td>{{ $user->created_at->format('d/m/Y') }}</td>
+                                        <td>{{ $user->created_at->format('H:i') }}</td>
                                         <td class="text-right">
 
                                             <div class="one">
@@ -49,7 +50,7 @@
                                                         
                                                         <button type="button" class="btn btn-link  btn-primary btn-sm btn-icon-only" data-toggle="tooltip"
                                                     data-placement="bottom" title="Delete User"
-                                                    onclick="confirm('Are you sure you want to delete this Product.') ? this.parentElement.submit() : ''">
+                                                    onclick="confirm('Are you sure you want to delete this User?') ? this.parentElement.submit() : ''">
                                                     <i class="" style="color: white"> Delete</i>
                                                 </button>
                                                      </form>
