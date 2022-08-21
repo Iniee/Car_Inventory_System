@@ -50,10 +50,15 @@ class ProductController extends Controller
     public function store(ProductRequest $request, Product $product)
     {
         $product->create($request->all());
-
+        if(Auth::user()->is_admin == 1) {
         return redirect()
             ->route('products.index')
+            ->withStatus('Product successfully registered.');        }
+        else {
+          return redirect()
+            ->route('sale.products.index')
             ->withStatus('Product successfully registered.');
+        }
     }
 
 

@@ -52,7 +52,7 @@ Route::any('/store/user', [UserController::class, 'store'])->name('users.store')
 Route::any('user/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
 Route::put('user/update/{user}', [UserController::class, 'update'])->name('users.update');
 Route::delete('destroy/user/{user}', [UserController::class, 'destroy'])->name('users.destroy');
-Route::any('index', [ProductController::class, 'index'])->name('admin.products.index');
+Route::any('index', [ProductController::class, 'index'])->name('products.index');
 Route::any('product/edit/{product}', [ProductController::class, 'edit'])->name('products.edit');
 Route::put('product/update/{product}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('delete/product/{product}', [ProductController::class, 'destroy'])->name('products.destroy');

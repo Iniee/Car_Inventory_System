@@ -60,7 +60,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Amount</th>
                             <th scope="col">Quantity</th>
-                            <th scope="col">Sold By</th>
+                            
                 </thead>
                 <tbody>
                     @foreach ($solds as $sold)
@@ -70,8 +70,7 @@
                                 <td>{{ $sold->name }}</td>
                                 <td>{{ $sold->base_price }}</td>
                                 <td>{{ $sold->quantity_sold }}</td>
-                                <td>{{ $sold->sold_by }}</td>
-
+                               
                             </tr>
                     @endforeach
                 </tbody>
