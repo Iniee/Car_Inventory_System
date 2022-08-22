@@ -23,7 +23,7 @@
                                     <td>{{ $products->id }}</td>
                                     <td>{{ $products->name }}</td>
                                     <td>{{ $products->category->name }}</td>
-                                    <td>{{ $products->product }}</td>
+                                    <td>{{ $products->quantity }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -34,9 +34,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    {{-- <div class="card-header">
-                        <h4 class="card-title">products: {{ $products->count() }}</h4>
-                    </div> --}}
 
                     <form method="post" action="{{ route('sales.update', $products) }}" autocomplete="off">
                         @csrf
@@ -53,9 +50,9 @@
 
                             <div class="row">
                                 <div class="col-4">
-                                    <div class="form-group{{ $errors->has('product') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-product">Input Quantity Sold</label>
-                                        <input type="number" name="product" id="input-product" 
+                                    <div class="form-group{{ $errors->has('quantity') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-quantity">Input Quantity Sold</label>
+                                        <input type="number" name="quantity" id="input-quantity" 
                                             class="form-control form-control-alternative" placeholder="0-9"
                                             value="" required>
                                         {{-- @include('alerts.feedback',['field'=>'product']) --}}

@@ -67,19 +67,19 @@
         <input class="form-control bg-white border-1" type="search" placeholder="Search">
     </form> --}}
     <div class="navbar-nav align-items-center ms-auto">
-        <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+         <div class="nav-item dropdown dropdown-center">
+            <a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown">
                 <img class="rounded-circle me-lg-2" src="{{ asset('images/1.jpg') }}" alt=""
                     style="width: 40px; height: 40px;">
                 <span class="d-none d-lg-inline-flex">{{ Auth::user()->name }}</span>
             </a>
 
-            <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                @if (Auth::check())
+             <div class="dropdown-menu dropdown-menu-end bg-white m-0">
+             @if (Auth::check())
                     <li><i class="fa fa-user"></i> {{ Auth::user()->name }}:</li>
                     <form id="logout-form" action="{{ url('logout') }}" method="POST">
                         @csrf
-                        <button type="submit" style="margin: 10px" class="btn">Logout</button>
+                    <button type="submit" style="margin: 10px" class="btn btn-sm">Logout</button>
                     </form>
                 @endif
             </div>
@@ -100,13 +100,13 @@
     <div class="bg-light rounded-top p-4">
         <div class="row">
             <div class="col-12 col-sm-6 text-center text-sm-start">
-                &copy; <a href="#">CIS</a>, All Right Reserved.
+                &copy; <a href="{{  url('/page') }}">CIS</a>, All Right Reserved.
             </div>
-            <div class="col-12 col-sm-6 text-center text-sm-end">
+            {{-- <div class="col-12 col-sm-6 text-center text-sm-end">
 
                 Designed By <a href="">THE PHP GROUP</a>
                 <br>Distributed By: <a href="" target="_blank">THE PHP GROUP</a>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

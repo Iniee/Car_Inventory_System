@@ -1,18 +1,23 @@
 @extends('layouts.navbars.user_sidebar')
+{{-- <!--@extends('layouts.app', ['page' => 'List of Products', 'pageSlug' => 'products', 'section' => 'inventory'])--> --}}
+
 @section('content')
+<div class="container-fluid py-6">
     <div class="row">
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">Sell Products</h4>
+                            <h4 class="card-title">Products</h4>
                         </div>
-                        
+                        <div class="col-4 text-right">
+                            <a href="{{ route('products.create') }}" class="btn btn-sm btn-primary">New product</a>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body">
-                    @include('alerts.success')
+                    {{-- @include('alerts.success') --}}
 
                     <div class="">
                         <table class="table tablesorter " id="">
@@ -21,18 +26,16 @@
                                 <th scope="col">Product</th>
                                 <th scope="col">Unit Price</th>
                                 <th scope="col">Quantity</th>
-                                <th scope="col">Action</th>
                             </thead>
                             <tbody>
                                 @foreach ($products as $product)
                                     <tr>
-                                        <td>{{ $product->category->name }}</td>
+                                        <td><a
+                                                href="{{ route('categories.show', $product->category) }}">{{ $product->category->name }}</a>
+                                        </td>
                                         <td>{{ $product->name }}</td>
-                                        <td>&#8358; {{ $product->price }}</td>
-                                        <td>{{ $product->quantity }}</td>
-                                        <td>  <a class="btn btn-sm btn-primary btn-icon-only"
-                                                            href="{{ url('product/sales/show', $product->name) }}">{{ __('SELL') }}
-                                                        </a> </td>
+                                        <td>&#8358 {{ $product->price }}</td>
+                                        <td> {{ $product->quantity }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -47,4 +50,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection

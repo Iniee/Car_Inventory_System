@@ -38,23 +38,23 @@ class SalesController extends Controller
         // dd($id);
         $products = Product::find($id);
         $request->validate([
-            'product' => 'required'
+            'quantity' => 'required'
         ]);
         $unit_price = $request->price;
-        $quantity = $request->product;
+        $quantity = $request->quantity;
         $total_price = $unit_price * $quantity;
         
         $sold = array(
             "name" => $request->name,
-            "quantity_sold" => $request->product,
+            "quantity_sold" => $request->quantity,
             "base_price" => $request->price,
             "total_price" => $total_price,
             "sold_by" => auth()->user()->name,
             "product_category_id" => $request->product_category_id
         );
         
-        if ($products->product >= $request->input('product') && $request->input('product') != 0 ){
-            $products->product -= $request->input('product');
+        if ($products->quantity >= $request->input('quantity') && $request->input('quantity') != 0 ){
+            $products->quantity -= $request->input('quantity');
             $products->save();
             
             $msg = 'Product sold';

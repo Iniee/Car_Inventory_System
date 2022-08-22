@@ -42,7 +42,8 @@
                                 <th scope="col">Unit price</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Total price</th>
-                                <th scope="col">Time Sold</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Time</th>
                                 <th scope="col">Sold By</th>
                             </thead>
                             <tbody>
@@ -51,11 +52,11 @@
                                         <td>{{ $sold->id }}</td>
                                         <td>{{ $sold->name }}</td>
                                         <td>{{ $sold->category->name}}</td>
-                                        <td>{{ $sold->base_price }}</td>
+                                        <td>&#8358 {{ $sold->base_price }}</td>
                                         <td>{{ $sold->quantity_sold }}</td>
-                                        <td>{{ $sold->total_price }}</td>
-                                        <td>{{ $sold->created_at }}</td>
-                                        <td>{{ $sold->sold_by }}</td>
+                                        <td>&#8358 {{ $sold->total_price }}</td>
+                                        <td>{{ $sold->created_at->format('Y-m-d') }}</td>
+                                        <td>{{ $sold->created_at->format('H:i') }}</td>                                        <td>{{ $sold->sold_by }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

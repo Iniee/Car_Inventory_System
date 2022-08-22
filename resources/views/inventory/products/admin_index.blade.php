@@ -2,6 +2,7 @@
 {{-- <!--@extends('layouts.app', ['page' => 'List of Products', 'pageSlug' => 'products', 'section' => 'inventory'])--> --}}
 
 @section('content')
+<div class="container-fluid py-6">
     <div class="row">
         <div class="col-md-12">
             <div class="card ">
@@ -25,7 +26,7 @@
                                 <th scope="col">Product</th>
                                 <th scope="col">Unit Price</th>
                                 <th scope="col">Quantity</th>
-                                <th scope="col"></th>
+                                <th scope="col">Action</th>
                             </thead>
                             <tbody>
                                 @foreach ($products as $product)
@@ -35,20 +36,20 @@
                                         </td>
                                         <td>{{ $product->name }}</td>
                                         <td>&#8358 {{ $product->price }}</td>
-                                        <td> {{ $product->product }}</td>
+                                        <td> {{ $product->quantity }}</td>
                                         <td class="td-actions text-right">
-                                            <a href="{{ route('products.edit', $product) }}" class="btn btn-link"
-                                                data-toggle="tooltip" data-placement="bottom" title="Edit Product">
-                                                <i class="tim-icons icon-pencil"></i>
+                                        <a href="{{ route('products.edit', $product) }}" class="btn btn-link btn-primary"  
+                                         data-toggle="tooltip" data-placement="bottom" title="Edit Product">
+                                                <i class="tim-icons" style="color: white"> Edit</i>
                                             </a>
                                             <form action="{{ route('products.destroy', $product) }}" method="post"
                                                 class="d-inline">
                                                 @csrf
                                                 @method('delete')
-                                                <button type="button" class="btn btn-link" data-toggle="tooltip"
+                                                 <button type="button" class="btn btn-link btn-primary" data-toggle="tooltip"
                                                     data-placement="bottom" title="Delete Product"
                                                     onclick="confirm('Are you sure you want to remove this product? The records that contain it will continue to exist.') ? this.parentElement.submit() : ''">
-                                                    <i class="tim-icons icon-simple-remove"></i>
+                                                    <i class="tim-icons" style="color: white"> Delete</i>
                                                 </button>
                                             </form>
                                         </td>
@@ -66,4 +67,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection
