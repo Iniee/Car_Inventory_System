@@ -8,8 +8,9 @@
                     <span class="navbar-toggler-bar bar2"></span>
                     <span class="navbar-toggler-bar bar3"></span>
                 </button>
+                
             </div>
-            <a class="fw-bolder text-bg-primary" style="font-size: 30px; font-weight: 700px; font-family: 'Poppins', sans-serif;" href="#">CAR INVENTORY SYSTEM</a>
+            <a class="fw-bolder text-bg-primary" style="font-size: 35px; font-weight: 900px;" href="#"><span>𝒞𝒜𝑅 𝐼𝒩𝒱𝐸𝒩𝒯𝒪𝑅𝒴 𝒮𝒴𝒮𝒯𝐸𝑀</span></a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -23,7 +24,7 @@
                         <i class="tim-icons icon-minimal-left"></i> Home
                     </a> --}}
                 </li>
-                <li class="nav-item ">
+                {{-- <li class="nav-item ">
                     <a href="{{ route('register') }}" class="nav-link">
                         <i class="tim-icons icon-laptop"></i> Register
                     </a>
@@ -32,7 +33,7 @@
                     <a href="{{ route('login') }}" class="nav-link">
                         <i class="tim-icons icon-single-02"></i> Login
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>
