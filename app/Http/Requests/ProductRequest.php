@@ -29,6 +29,7 @@ class ProductRequest extends FormRequest
             'description' => [],
             'quantity' => ['required'],
             'price' => ['required'],
+            'created_by' => ['required'],
         ];
     }
 }

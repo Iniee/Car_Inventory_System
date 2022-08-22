@@ -26,6 +26,7 @@
                                 <th scope="col">Product</th>
                                 <th scope="col">Unit Price</th>
                                 <th scope="col">Quantity</th>
+                                <th scope="col">Created By</th>
                                 <th scope="col">Action</th>
                             </thead>
                             <tbody>
@@ -37,6 +38,7 @@
                                         <td>{{ $product->name }}</td>
                                         <td>&#8358 {{ $product->price }}</td>
                                         <td> {{ $product->quantity }}</td>
+                                        <td> {{ $product->created_by }}</td>
                                         <td class="td-actions text-right">
                                         <a href="{{ route('products.edit', $product) }}" class="btn btn-link btn-primary"  
                                          data-toggle="tooltip" data-placement="bottom" title="Edit Product">

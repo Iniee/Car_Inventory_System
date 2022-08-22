@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('product_category_id');
             $table->unsignedDecimal('price', 10, 2);
             $table->unsignedinteger('quantity')->default(0);
+            $table->string('created_by');
             $table->foreign('product_category_id')->references('id')->on('productcategories');
             $table->timestamps();
         });
