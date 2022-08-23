@@ -73,6 +73,14 @@
                                              @include('alerts.feedback', ['field' => 'price'])
                                         </div>
                                     </div>
+                                    <div class="form-group{{ $errors->has('created_by') ? ' has-danger' : '' }}">
+                                            {{-- <label class="form-control-label" for="input-price">Unit Price</label> --}}
+                                            <input type="hidden" step=".01" name="created_by" id="input-price"
+                                                class="form-control form-control-alternative" placeholder="Created by"
+                                                value="{{Auth::user()->name}}" required readonly>
+                                             @include('alerts.feedback', ['field' => 'created_by'])
+                                        </div>
+                                    
                                 </div>
 
                                 <div class="text-center">

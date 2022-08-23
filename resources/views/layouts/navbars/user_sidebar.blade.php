@@ -33,7 +33,7 @@
                         <a href=" {{ route('categories.create') }}" class="dropdown-item">Create Categories</a>
                     @endif
                     <a href="{{ route('products.index') }}" class="dropdown-item">Manage Products</a>
-                    <a href="{{ route('sold.item') }}" class="dropdown-item">List of Product Sold</a>
+                    {{-- <a href="{{ route('sold.item') }}" class="dropdown-item">List of Product Sold</a> --}}
 
                 </div>
             </div>

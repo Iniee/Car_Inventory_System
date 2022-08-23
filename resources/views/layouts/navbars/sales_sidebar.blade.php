@@ -26,7 +26,7 @@
                     <a href="{{ route('products.create') }}" class="dropdown-item">Create Product</a>
                     <a href="{{ route('sale.products.index') }}" class="dropdown-item">List of Product</a>
                     <a href="{{ route('sales.index') }}" class="dropdown-item">Sell Product</a>
-                    <a href="{{ url('product/sales/list') }}" class="dropdown-item">List of Product Sold</a>                    
+                    {{-- <a href="{{ url('product/sales/list') }}" class="dropdown-item">List of Product Sold</a>                     --}}
                 </div>
             </div>
 

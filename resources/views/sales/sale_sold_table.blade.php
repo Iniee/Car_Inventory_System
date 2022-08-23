@@ -36,7 +36,7 @@
                                 <div class="">
                                     <table class="table tablesorter">
                                         <thead class=" text-primary">
-                                            <th scope="col">ID</th>
+                                            {{-- <th scope="col">ID</th> --}}
                                             <th scope="col">Product Name</th>
                                             <th scope="col">Product Category</th>
                                             <th scope="col">Unit price</th>
@@ -44,13 +44,13 @@
                                             <th scope="col">Total price</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Time</th>
-                                            <th scope="col">Sold By</th>
+                                            {{-- <th scope="col">Sold By</th> --}}
 
                                         </thead>
                                         <tbody>
                                             @foreach ($solds as $sold)
                                                 <tr>
-                                                    <td>{{ $sold->id }}</td>
+                                                    {{-- <td>{{ $sold->id }}</td> --}}
                                                     <td>{{ $sold->name }}</td>
                                                     <td>{{ $sold->category->name }}</td>
                                                     <td>{{ $sold->base_price }}</td>
@@ -58,7 +58,7 @@
                                                     <td>{{ $sold->total_price }}</td>
                                                     <td>{{ $sold->created_at->format('Y-m-d') }}</td>
                                                     <td>{{ $sold->created_at->format('H:i') }}</td>
-                                                    <td>{{ $sold->sold_by }}</td>
+                                                    {{-- <td>{{ $sold->sold_by }}</td> --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>

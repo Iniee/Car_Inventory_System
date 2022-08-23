@@ -36,7 +36,7 @@
                         <div class="">
                          <table class="table tablesorter">
                             <thead class=" text-primary">
-                                <th scope="col">ID</th>
+                                {{-- <th scope="col">ID</th> --}}
                                 <th scope="col">Product Name</th>
                                 <th scope="col">Product Category</th>
                                 <th scope="col">Unit price</th>
@@ -49,7 +49,7 @@
                             <tbody>
                                 @foreach ($solds as $sold)
                                     <tr>
-                                        <td>{{ $sold->id }}</td>
+                                        {{-- <td>{{ $sold->id }}</td> --}}
                                         <td>{{ $sold->name }}</td>
                                         <td>{{ $sold->category->name}}</td>
                                         <td>&#8358 {{ $sold->base_price }}</td>

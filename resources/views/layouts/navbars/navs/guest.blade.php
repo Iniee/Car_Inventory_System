@@ -1,6 +1,6 @@
 <div class="container-fluid">
-<nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent fixed-top">
-    
+    <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent fixed-top">
+
         <div class="navbar-wrapper">
             <div class="navbar-toggle d-inline">
                 <button type="button" class="navbar-toggler">
@@ -9,9 +9,11 @@
                     <span class="navbar-toggler-bar bar3"></span>
                 </button>
             </div>
-            <a class="fw-bolder text-bg-primary" style="font-size: 30px; font-weight: 700px; font-family: 'Poppins', sans-serif;" href="#">CAR INVENTORY SYSTEM</a>
+            <a class="fw-bolder text-bg-primary" style="font-size: 35px; font-weight: 900px;" href="#"><span>𝒞𝒜𝑅
+                    𝐼𝒩𝒱𝐸𝒩𝒯𝒪𝑅𝒴 𝒮𝒴𝒮𝒯𝐸𝑀</span></a>
         </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+            aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -19,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    {{--<a href="{{ route('home') }}" class="nav-link text-primary">
+                    {{-- <a href="{{ route('home') }}" class="nav-link text-primary">
                         <i class="tim-icons icon-minimal-left"></i> Home
                     </a> --}}
                 </li>
@@ -35,5 +37,5 @@
                 </li>
             </ul>
         </div>
-    </div>
+</div>
 </nav>
